@@ -15,15 +15,17 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19 et Ty
 
 Le document « Conception du site CIRS-Conseil.docx » est la source du contenu. Le logo fourni est conservé sur la page contact ; un traitement typographique compact sert la navigation.
 
-## À renseigner avant ouverture commerciale
+## Coordonnées et contact
 
-Les coordonnées, le domaine et le fournisseur de messagerie ne sont pas fournis. Le formulaire valide et prépare une demande copiable, sans transmission ni stockage. Pour recevoir des messages, connecter un service sécurisé côté serveur avec validation, contrôle du débit et protection anti-spam ; ne jamais exposer de clé API dans le navigateur. Configurer séparément le domaine et les enregistrements de messagerie SPF/DKIM/DMARC. Ajouter les informations légales confirmées de la société et les informations de confidentialité correspondant aux services effectivement activés.
+Coordonnées centralisées dans `lib/content.ts` (`contact`) : firme@cirsorg.com, 418 558 48 64, WhatsApp +33 7 52 93 06 08, Québec et Paris, travail à distance. Le formulaire ouvre la messagerie du visiteur avec un courriel prérempli (lien `mailto:`) ; rien n'est stocké ni transmis par le site. Pour un envoi direct, connecter plus tard un service sécurisé côté serveur (validation, anti-spam, aucune clé API exposée).
+
+Domaines d'expertise (12) et services (5) reprennent le flyer CIRS-Conseil.Inc. Le portrait du fondateur (`public/fondateur.webp`) est extrait du flyer.
 
 Aucune publication, date d’événement, référence client ou statistique non fournie n’est inventée. Les rubriques éditoriales affichent leur disponibilité future. Aucun CMS, suivi analytique, compte utilisateur ou collecte de données n’est activé.
 
 ## Design
 
-Bleu nuit, or mat, typographie éditoriale et illustration de globe. Références explorées : https://dribbble.com/tags/strategy-consulting et https://dribbble.com/tags/editorial-web-design. Figma Community n’était pas accessible à la recherche. Illustrations originales générées pour le site, logo extrait du document de conception. Les polices Google Fonts ont une pile système de repli.
+Bleu marine royal et or, alignés sur le logo et le flyer, typographie éditoriale et illustration de globe. Références explorées : https://dribbble.com/tags/strategy-consulting et https://dribbble.com/tags/editorial-web-design. Figma Community n’était pas accessible à la recherche. Illustrations originales générées pour le site, logo extrait du document de conception. Les polices Google Fonts ont une pile système de repli.
 
 ## Accessibilité et interactions
 
