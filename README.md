@@ -17,9 +17,9 @@ Le document « Conception du site CIRS-Conseil.docx » est la source du contenu.
 
 ## Coordonnées et contact
 
-Coordonnées centralisées dans `lib/content.ts` (`contact`) : firme@cirsorg.com, 418 558 48 64, WhatsApp +33 7 52 93 06 08, Québec et Paris, travail à distance. Le formulaire ouvre la messagerie du visiteur avec un courriel prérempli (lien `mailto:`) ; rien n'est stocké ni transmis par le site. Pour un envoi direct, connecter plus tard un service sécurisé côté serveur (validation, anti-spam, aucune clé API exposée).
+Coordonnées centralisées dans `lib/content.ts` (`contact`) : firme@cirsorg.com, 418 558 48 64, WhatsApp +33 7 52 93 06 08, Québec, travail à distance. Le formulaire ouvre la messagerie du visiteur avec un courriel prérempli (lien `mailto:`) ; rien n'est stocké ni transmis par le site. Pour un envoi direct, connecter plus tard un service sécurisé côté serveur (validation, anti-spam, aucune clé API exposée).
 
-Domaines d'expertise (12) et services (5) reprennent le flyer CIRS-Conseil.Inc. Le portrait du fondateur (`public/fondateur.webp`) est extrait du flyer.
+Domaines d'expertise (12) et services (5) reprennent le flyer CIRS-Conseil Inc. La rubrique À propos, la citation de Sénèque, la mention d’indépendance vis-à-vis du think tank CIRS et la notice de confidentialité (Loi 25, RGPD) suivent le document « Modifications à faire ». Le portrait du fondateur (`public/fondateur.webp`) provient de ce document.
 
 Aucune publication, date d’événement, référence client ou statistique non fournie n’est inventée. Les rubriques éditoriales affichent leur disponibilité future. Aucun CMS, suivi analytique, compte utilisateur ou collecte de données n’est activé.
 
