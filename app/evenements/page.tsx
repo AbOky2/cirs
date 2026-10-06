@@ -1,11 +1,18 @@
-import Link from 'next/link';
-import {Header,Footer,PageIntro,ArrowRight} from '@/components/site';
+import {Mic,Video,Users,CalendarDays} from 'lucide-react';
+import {Header,Footer,PageHero,Btn,Tag,Dots} from '@/components/site';
+import {Reveal,Title} from '@/components/motion';
 export const metadata={title:'Conférences & événements — CIRS-Conseil Inc.'};
-const formats=[['Conférences & interventions','Un regard stratégique pour éclairer les enjeux internationaux de vos équipes et de vos publics.'],['Webinaires','Un format accessible pour comprendre les évolutions géopolitiques, économiques et institutionnelles.'],['Tables rondes','Croiser les perspectives et mettre les enjeux en discussion.'],['Rencontres CIRS-Conseil','Des rencontres consacrées aux mutations de l’environnement international.']];
+const formats=[{icon:Mic,t:'Conférences & interventions',d:'Un regard stratégique pour éclairer les enjeux internationaux de vos équipes et de vos publics.'},{icon:Video,t:'Webinaires',d:'Un format accessible pour comprendre les évolutions géopolitiques, économiques et institutionnelles.'},{icon:Users,t:'Tables rondes',d:'Croiser les perspectives et mettre les enjeux en discussion.'},{icon:CalendarDays,t:'Rencontres CIRS-Conseil',d:'Des rencontres consacrées aux mutations de l’environnement international.'}];
 export default function Page(){return <div id="top"><Header/><main id="main">
-<PageIntro label="Événements" crumb="/" title={<>Faire dialoguer<br/>les idées et l’action.</>}><p>Le programme sera annoncé prochainement. Aucun événement n’est prévu pour le moment.</p></PageIntro>
-<section className="block wrap">
-  <div className="rail"><span className="label">Formats</span></div>
-  <div className="block-body"><ol className="index-list">{formats.map(([t,d],i)=><li key={t}><span className="index-num">{String(i+1).padStart(2,'0')}</span><h3>{t}</h3><p>{d}</p></li>)}</ol><Link className="link block-cta" href="/contact/">Inviter CIRS-Conseil à intervenir <ArrowRight size={17} strokeWidth={1.5}/></Link></div>
+<PageHero tag="Événements" title="Faire dialoguer" tone="les idées et l’action." crumb={{href:'/',label:'Accueil'}} lead={<><p>Conférences, webinaires et tables rondes : faire dialoguer l’analyse et les réalités des organisations.</p><span className="soon"><i/>Programme annoncé prochainement</span></>}/>
+<section className="section container">
+  <div className="fmt-grid">{formats.map(({icon:Icon,t,d},n)=><Reveal key={t} delay={n*.07} className="fmt-wrap"><div className="fmt"><div className="svc-notch"><span className="svc-ico"><Icon size={22} strokeWidth={1.7}/></span></div><h3>{t}</h3><p>{d}</p></div></Reveal>)}</div>
+</section>
+<section className="cta" style={{marginBottom:0}}>
+  <Dots className="cta-dots"/>
+  <div className="container cta-grid">
+    <div><Tag dark>Invitation</Tag><Title className="h2 on-dark" parts={[{t:'Inviter CIRS-Conseil',br:true},{t:'à intervenir.',tone:true}]}/></div>
+    <div><Btn href="/contact/" variant="gold">Proposer une intervention</Btn></div>
+  </div>
 </section>
 </main><Footer/></div>}

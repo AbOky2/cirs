@@ -18,5 +18,7 @@ export function getArticles():Article[]{
 }
 export function getArticle(slug:string){return getArticles().find(a=>a.slug===slug)}
 export function renderMarkdown(md:string){return marked.parse(md,{async:false})}
-export function formatDate(iso:string){return iso?new Intl.DateTimeFormat('fr-CA',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(iso)):''}
-export function readingTime(md:string){return Math.max(1,Math.round(md.split(/\s+/).length/220))}
+import {formatDate,readingTime} from './format';
+export {formatDate,readingTime};
+import type {ArticleCardData} from '@/components/articles';
+export function toCard(a:Article):ArticleCardData{return {slug:a.slug,title:a.title,category:a.category,dateIso:a.date,dateLabel:formatDate(a.date),minutes:readingTime(a.body),summary:a.summary,...(a.cover?{cover:a.cover}:{})}}
