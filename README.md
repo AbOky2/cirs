@@ -15,6 +15,10 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19 et Ty
 
 Le document « Conception du site CIRS-Conseil.docx » est la source du contenu. Le logo fourni est conservé sur la page contact ; un traitement typographique compact sert la navigation.
 
+## Équipe et expertises
+
+La page `/equipe/` présente le PDG (photo, certifications, parcours, citation de Sénèque) ; ces éléments ne figurent plus sur l'accueil. Les domaines d'expertise sont condensés en cinq (`expertises` dans `lib/content.ts`).
+
 ## Articles
 
 Les articles sont des fichiers Markdown dans `content/articles/` (titre, date, rubrique, résumé, auteur, couverture, brouillon). Ils sont lus à la compilation par `lib/articles.ts` et rendus sur `/articles/` et `/articles/<slug>/`. L'espace de rédaction `/admin/` (Sveltia CMS, configuré dans `public/admin/config.yml`) permet à l'auteur de publier seul : voir `GUIDE-ARTICLES.md`. L'ancienne page Publications est remplacée par Articles.
