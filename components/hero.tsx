@@ -82,7 +82,7 @@ export function HorizonsCard(){
         <circle cx={q[0]} cy={q[1]} r="7.5" className="hz-home"/>
       </svg>
       <span className="hz-pin-pos" style={pct(q[0],q[1])}><span className={'hz-pin hz-pin-q'+(q[1]/WORLD_H<.3?' is-below':'')}>Québec</span></span>
-      <AnimatePresence mode="popLayout"><motion.span key={key} className="hz-pin-pos" style={pct(hub[0],hub[1])} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.4,delay:.9}}><span className={'hz-pin'+(hub[1]/WORLD_H<.3?' is-below':'')}>{region.name}</span></motion.span></AnimatePresence>
+      <AnimatePresence mode="popLayout"><motion.span key={key} className="hz-pin-pos" style={pct(hub[0],hub[1])} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0,transition:{duration:.2,delay:0}}} transition={{duration:.4,delay:.9}}><span className={'hz-pin'+(hub[1]/WORLD_H<.3?' is-below':'')}>{region.name}</span></motion.span></AnimatePresence>
     </div>
     <div className="hz-tabs" role="tablist" aria-label="Régions d’intervention">
       {regions.map((g,n)=><button key={g.name} role="tab" aria-selected={n===r} className={n===r?'is-on':undefined} onClick={()=>{setR(n);setPaused(true)}}>{n===r&&<motion.span layoutId="hz-pill" className="hz-pill" transition={{type:'spring',stiffness:400,damping:34}}/>}<span>{g.name}</span></button>)}
