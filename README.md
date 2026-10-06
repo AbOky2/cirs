@@ -33,7 +33,12 @@ Aucune publication, date d’événement, référence client ou statistique non 
 
 ## Design
 
-Bleu marine royal et or, alignés sur le logo et le flyer, typographie éditoriale et illustration de globe. Références explorées : https://dribbble.com/tags/strategy-consulting et https://dribbble.com/tags/editorial-web-design. Figma Community n’était pas accessible à la recherche. Illustrations originales générées pour le site, logo extrait du document de conception. Les polices Google Fonts ont une pile système de repli.
+Direction éditoriale inspirée des cabinets de conseil stratégique de référence (Hakluyt, Brunswick, FGS Global, Teneo) : la typographie porte l'identité, la structure passe par la grille, les filets et l'espace, sans cartes, ombres ni coins arrondis.
+
+- Polices auto-hébergées via Fontsource (aucune requête vers Google, cohérent avec la Loi 25 et le RGPD) : Newsreader (serif à axe optique) pour les titres et le corps des articles, Hanken Grotesk pour l'interface.
+- Palette : ivoire `#f5f2ec`, encre `#0e1a2b`, marine `#0a172b`, or réservé aux accents.
+- Grille éditoriale : une colonne d'étiquettes (3/12) et un corps (9/12) sur toutes les sections.
+- Apparition au défilement en CSS natif (`animation-timeline: view()`), désactivée si l'utilisateur réduit les animations.
 
 ## Accessibilité et interactions
 

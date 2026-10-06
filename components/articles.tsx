@@ -1,4 +1,4 @@
 import Link from 'next/link';
 import {ArrowUpRight} from 'lucide-react';
 import {type Article,formatDate,readingTime} from '@/lib/articles';
-export function ArticleCard({a}:{a:Article}){return <Link className="article-card" href={`/articles/${a.slug}/`}>{a.cover&&<img src={a.cover} alt="" loading="lazy"/>}<div><span className="category">{a.category}</span><h2>{a.title}</h2>{a.summary&&<p>{a.summary}</p>}<span className="article-card-meta">{formatDate(a.date)} · {readingTime(a.body)} min de lecture <ArrowUpRight size={17}/></span></div></Link>}
+export function ArticleList({articles}:{articles:Article[]}){return <ul className="article-list detailed">{articles.map(a=><li key={a.slug}><Link href={`/articles/${a.slug}/`}><time dateTime={a.date}>{formatDate(a.date)}</time><span className="article-list-main"><span className="article-list-title">{a.title}</span>{a.summary&&<span className="article-list-summary">{a.summary}</span>}</span><span className="article-list-cat">{a.category}<br/>{readingTime(a.body)} min</span><ArrowUpRight className="article-list-arrow" size={20} strokeWidth={1.5}/></Link></li>)}</ul>}
