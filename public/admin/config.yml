@@ -1,0 +1,45 @@
+# Espace de rédaction CIRS-Conseil Inc. (Sveltia CMS) — accessible sur /admin/
+# Chaque publication crée un commit sur la branche main ; Vercel remet le site en ligne automatiquement.
+backend:
+  name: github
+  repo: AbOky2/cirs
+  branch: main
+  commit_messages:
+    create: "Article : publier « {{slug}} »"
+    update: "Article : modifier « {{slug}} »"
+    delete: "Article : supprimer « {{slug}} »"
+    uploadMedia: "Article : ajouter l’image {{path}}"
+    deleteMedia: "Article : retirer l’image {{path}}"
+
+site_url: https://cirsconseil.org
+logo_url: /cirs-logo.png
+media_folder: public/images/articles
+public_folder: /images/articles
+
+collections:
+  - name: articles
+    label: Articles
+    label_singular: Article
+    description: Rédigez, modifiez et publiez les articles de la rubrique Articles du site.
+    folder: content/articles
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}{{draft | ternary(' (brouillon)', '')}}"
+    sortable_fields: [date, title, category]
+    preview_path: /articles/{{slug}}/
+    fields:
+      - {name: title, label: Titre, widget: string}
+      - {name: date, label: Date de publication, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD"}
+      - name: category
+        label: Rubrique
+        widget: select
+        default: Analyses stratégiques
+        options: [Analyses stratégiques, Notes de politiques publiques, Notes stratégiques, Veille internationale, Perspectives CIRS-Conseil]
+      - {name: summary, label: Résumé (affiché dans la liste), widget: text, required: false}
+      - {name: author, label: Auteur, widget: string, default: Hassan Ahmat Djamaladine}
+      - {name: cover, label: Image de couverture, widget: image, required: false}
+      - {name: draft, label: Brouillon (non publié sur le site), widget: boolean, default: false}
+      - {name: body, label: Texte de l’article, widget: markdown}

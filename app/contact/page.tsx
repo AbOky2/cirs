@@ -1,4 +1,15 @@
-import Link from 'next/link';
-import {Header,Footer,ContactForm,ContactDetails} from '@/components/site';
-export const metadata={title:'Parlons de vos enjeux — CIRS Conseil'};
-export default function Page(){return <div id="top"><Header/><main id="main"><section className="subhero"><div className="container"><Link className="breadcrumb" href="/">Accueil / Contact</Link><span className="eyebrow light">IMPLANTATION ET CONTACT</span><h1>Vos enjeux méritent<br/><em>un regard éclairé.</em></h1><p>Affaires publiques, conseil en affaires, relations publiques, environnement ou management : précisez votre besoin.</p></div></section><section className="container section contact-layout"><aside className="contact-aside"><span className="eyebrow">CIRS-CONSEIL.INC</span><h2>Anticiper. Comprendre.<br/><em>Décider.</em></h2><p>Firme québécoise de stratégie et d’affaires publiques, implantée à Québec et à Paris.</p><ContactDetails/></aside><ContactForm/></section></main><Footer/></div>}
+import {Header,Footer,PageIntro,ContactForm} from '@/components/site';
+import {contact} from '@/lib/content';
+export const metadata={title:'Contact — CIRS-Conseil Inc.'};
+export default function Page(){return <div id="top"><Header/><main id="main">
+<PageIntro label="Contact" crumb="/" title={<>Parlons de<br/>vos enjeux.</>}><p>Affaires publiques, conseil en affaires, relations publiques, environnement ou management : décrivez votre besoin, nous revenons vers vous.</p></PageIntro>
+<section className="block wrap contact-page">
+  <div className="rail"><dl className="contact-facts stacked">
+    <div><dt>Courriel</dt><dd><a href={'mailto:'+contact.email}>{contact.email}</a></dd></div>
+    <div><dt>Téléphone</dt><dd><a href={contact.phoneHref}>{contact.phone}</a></dd></div>
+    <div><dt>WhatsApp</dt><dd><a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer">{contact.whatsapp}</a></dd></div>
+    <div><dt>Implantation</dt><dd>{contact.locations.join(' · ')}<br/>{contact.remote}</dd></div>
+  </dl></div>
+  <div className="block-body"><ContactForm/></div>
+</section>
+</main><Footer/></div>}
