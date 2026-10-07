@@ -119,7 +119,7 @@ export function Method(){
 /* ——— Équipe : portrait et badges flottants ——— */
 export function FounderPortrait({compact=false}:{compact?:boolean}){
   return <div className={'fp'+(compact?' fp-compact':'')}>
-    <div className="fp-frame"><Dots className="fp-dots"/><img src="/fondateur.webp" alt={`Portrait de ${founder.name}, ${founder.role}`} width="112" height="148"/></div>
+    <div className="fp-frame"><Dots className="fp-dots"/><img src="/fondateur.webp" alt={`Portrait de ${founder.name}, ${founder.role}`} width="600" height="793"/></div>
     <Float className="fp-badge fp-b1" amp={7}><span className="fp-bi"><Award size={17} strokeWidth={1.8}/></span><span><small>Certifié en</small>Intelligence économique</span></Float>
     <Float className="fp-badge fp-b2" amp={9} delay={1.4} duration={7}><span className="fp-bi"><GraduationCap size={17} strokeWidth={1.8}/></span><span><small>Formé à</small>ENAP · IEP de Fontainebleau</span></Float>
     <Float className="fp-badge fp-b3" amp={6} delay={.7} duration={5.5}><span className="fp-live"/>PDG · CIRS-Conseil Inc.</Float>
