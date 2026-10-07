@@ -310,7 +310,7 @@ h1,h2,h3{font-weight:500}
 .fp{position:relative;max-width:500px;margin-inline:auto;padding:24px 44px 30px}
 .fp-frame{position:relative;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:1/1.1;border-radius:34px;overflow:hidden;background:radial-gradient(80% 70% at 70% 20%,#f8e8c2 0%,transparent 60%),linear-gradient(165deg,#e7eef8 0%,#dfe7f3 100%);isolation:isolate}
 .fp-dots{position:absolute;left:-30%;top:4%;width:160%;aspect-ratio:1000/419;background:rgba(8,20,48,.12);z-index:-1}
-.fp-frame img{width:58%;height:auto;aspect-ratio:112/148;object-fit:cover;border-radius:26px 26px 0 0;box-shadow:0 -20px 50px -20px rgba(8,20,48,.35)}
+.fp-frame img{width:58%;height:auto;aspect-ratio:600/793;object-fit:cover;object-position:50% 20%;border-radius:26px 26px 0 0;box-shadow:0 -20px 50px -20px rgba(8,20,48,.35)}
 .fp-badge{position:absolute;z-index:2;display:flex;align-items:center;gap:11px;padding:10px 16px 10px 10px;border-radius:17px;background:#fff;box-shadow:var(--shadow-float);font-size:13.5px;font-weight:500;line-height:1.25;color:var(--ink);white-space:nowrap}
 .fp-badge small{display:block;font-size:11.5px;font-weight:400;color:var(--muted)}
 .fp-bi{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--navy-900);color:var(--gold)}
