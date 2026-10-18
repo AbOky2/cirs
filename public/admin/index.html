@@ -10,7 +10,11 @@
   <style>img[src="/cirs-logo.png"]{width:180px;height:180px;object-fit:contain;margin-bottom:24px}</style>
 </head>
 <body>
-  <!-- Version figée et empreinte vérifiée : en cas de mise à jour, recalculer integrity (sha384 du fichier). -->
-  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js" integrity="sha384-A/Gdn928CNLufmnGWGs9RM4Q9o8bSNLeJERqBFrBjwzL7FRpoLT3MPF8Tl0+Wd2p" crossorigin="anonymous"></script>
+  <!-- Version figée et empreinte vérifiée : en cas de mise à jour, recalculer integrity (sha384 du fichier).
+       Ne pas passer en 3.10 ou plus sans tester : à partir de 3.10.0, une image tout juste envoyée
+       ne s'affiche plus avant l'enregistrement de l'article. -->
+  <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js" integrity="sha384-iKWz3FTq6ztLAJCOsUcN+HMprsHWCEIc8XA7UsW2taWGadrOEwj2LjmXthxQIDTy" crossorigin="anonymous"></script>
+  <!-- Aperçu des articles au style du site. -->
+  <script src="/admin/preview.js"></script>
 </body>
 </html>
