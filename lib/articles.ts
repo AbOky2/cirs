@@ -7,7 +7,7 @@ export type Article={slug:string;title:string;date:string;category:string;summar
 
 const dir=path.join(process.cwd(),'content/articles');
 
-// Articles rédigés via /admin (Sveltia CMS) : un fichier Markdown par article, brouillons exclus.
+// Articles rédigés via /admin (Decap CMS) : un fichier Markdown par article, brouillons exclus.
 export function getArticles():Article[]{
   if(!fs.existsSync(dir))return[];
   return fs.readdirSync(dir).filter(f=>f.endsWith('.md')).flatMap((f):Article[]=>{

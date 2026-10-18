@@ -6,8 +6,11 @@
   <meta name="robots" content="noindex">
   <title>Rédaction — CIRS-Conseil Inc.</title>
   <link rel="icon" href="/cirs-logo.png">
+  <!-- Logo carré : réduit pour ne pas chevaucher le formulaire de connexion. -->
+  <style>img[src="/cirs-logo.png"]{width:180px;height:180px;object-fit:contain;margin-bottom:24px}</style>
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <!-- Version figée et empreinte vérifiée : en cas de mise à jour, recalculer integrity (sha384 du fichier). -->
+  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js" integrity="sha384-A/Gdn928CNLufmnGWGs9RM4Q9o8bSNLeJERqBFrBjwzL7FRpoLT3MPF8Tl0+Wd2p" crossorigin="anonymous"></script>
 </body>
 </html>

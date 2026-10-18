@@ -27,7 +27,7 @@ Aucune référence client, date d’événement ni statistique commerciale n’e
 
 ## Articles
 
-Les articles sont des fichiers Markdown dans `content/articles/` (titre, date, rubrique, résumé, auteur, couverture, brouillon). Ils sont lus à la compilation et rendus sur `/articles/` (filtrable par rubrique) et `/articles/<slug>/`. L’espace de rédaction `/admin/` (Sveltia CMS, configuré dans `public/admin/config.yml`) permet à l’auteur de publier seul : voir `GUIDE-ARTICLES.md`.
+Les articles sont des fichiers Markdown dans `content/articles/` (titre, date, rubrique, résumé, auteur, couverture, brouillon). Ils sont lus à la compilation et rendus sur `/articles/` (filtrable par rubrique) et `/articles/<slug>/`. L’espace de rédaction `/admin/` (Decap CMS, configuré dans `public/admin/config.yml`) permet à l’auteur de publier seul, avec une connexion par e-mail et mot de passe gérée par DecapBridge (aucun compte GitHub requis) : voir `GUIDE-ARTICLES.md`.
 
 ## Coordonnées et contact
 
