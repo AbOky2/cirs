@@ -6,8 +6,8 @@ backend:
   name: git-gateway
   repo: AbOky2/cirs
   branch: main
-  # Remplacer ID_DU_SITE par l'identifiant donné par DecapBridge (tableau de bord → site → configuration).
-  identity_url: https://auth.decapbridge.com/sites/ID_DU_SITE
+  # Identifiant du site sur DecapBridge (tableau de bord → site → configuration).
+  identity_url: https://auth.decapbridge.com/sites/65bbc481-5b46-483e-9afa-fea8215ec364
   gateway_url: https://gateway.decapbridge.com
   commit_messages:
     create: "Article : publier « {{slug}} » — {{author-name}}"
