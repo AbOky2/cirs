@@ -1,30 +1,146 @@
 ---
-title: "Après le 8 septembre: place à l’épreuve de force commerciale"
-date: 2026-09-22
-category: Analyses stratégiques
+title: Quel est le rôle de l’administration tchadienne dans la réussite du plan
+  national de développement (PND) Tchad Connexion 2030 ?
+date: 2025-10-23
+category: Notes de politiques publiques
 author: Hassan Ahmat Djamaladine
 draft: false
 ---
-L’entrée en vigueur, le 8 septembre 2026, des contre-[tarifs](https://www.lesaffaires.com/tag/tarifs-douaniers/) canadiens de 15%, 25% et 50% sur 27,6 milliards de dollars de produits américains a fait basculer le conflit commercial canado-américain d’une phase déclaratoire à une phase d’application effective.
+
+
+>  
+>
+> **Contexte et enjeux du plan « Tchad Connexion 2030 »**
+
+Le Tchad a adopté un nouveau plan national de développement intitulé **Tchad Connexion 2030\[1]**. Le plan est décliné en 17 programmes regroupant quelque 268 projets et réformes multisectoriels\[2]. Il vise notamment à mobiliser environ **30 milliards de dollars US** (environ 18 000 milliards de FCFA) d’investissements publics et privés entre 2025 et 2030\[3]. Il s’appuie sur quatre domaines d’intervention majeurs : infrastructures stratégiques (énergie, eau, transport, numérique), renforcement du capital humain (éducation, santé, emploi), diversification économique (agriculture, élevage, mines, industries) et inclusion/résilience\[4]. Il est présenté comme un tournant pour le pays, visant à faire du Tchad un « hub » logistique en Afrique centrale, à valoriser son potentiel géographique, humain et économique\[5].
+
+En effet, l’administration tchadienne est appelée à jouer un rôle central dans la déclinaison du plan à travers : la planification, coordination, mobilisation des ressources, pilotage, suivi/évaluation, gouvernance, etc.
+
+> **Le rôle de l’administration tchadienne**
+
+Voici les principaux rôles que l’administration tchadienne (au sens large : ministères, agences publiques, administrations déconcentrées/décentralisées) doit assumer pour la réussite de « Tchad Connexion 2030 ».
+
+> **1. Pilotage stratégique et coordination**
+
+L’administration centrale est responsable de l’élaboration et de la mise en place du cadre stratégique : le plan lui-même a été adopté par le gouvernement\[6],elle doit également assurer la coordination entre les différents programmes, ministères, agences et niveaux territoriaux (provinces, départements, communes) :
 
 
 
+* Le document officiel mentionne l’« Unité d’appui à la mise en œuvre » qui doit accompagner les ministères et institutions concernés\[7] ;
+* Le ministère des Finances, du Budget, de l’Economie, du Plan et de la Coopération internationale est le ministère porteur\[8].
 
 
-Une escalade qui déborde le strict registre tarifaire. La veille même de l’entrée en vigueur des contre-mesures canadiennes, le président américain [Donald Trump](https://www.lesaffaires.com/tag/donald-trump/) a menacé d’interdire la vente d’avions Bombardier sur le marché américain tant que l’entreprise n’y délocaliserait pas sa production, tout en évoquant des restrictions visant les Gulfstream au Canada. Ce geste marque un changement de nature du conflit: il ne s’agit plus seulement d’ajuster des droits de douane sectoriels, mais de viser un fleuron industriel québécois à forte intégration nord-américaine, dont les chaînes d’approvisionnement dépendent largement de fournisseurs américains. La réaction des marchés sensible du titre Bombardier illustre la vulnérabilité des entreprises prises dans l’engrenage d’une guerre commerciale devenue personnalisée et imprévisible, confirmant le diagnostic du «brouillard tarifaire». Washington a par ailleurs laissé planer la menace de mesures de rétorsion supplémentaires sur l’alcool, les produits laitiers et l’acier canadiens, ce qui indique que la logique du «dollar pour dollar» canadien pourrait ne pas rester sans réplique symétrique côté américain.
 
-Le test de la cohésion interne. La séquence a coïncidé, au Québec, avec une campagne électorale provinciale, la première ministre, [Christine Fréchette](https://www.lesaffaires.com/tag/christine-frechette/), ayant dû suspendre ses activités partisanes pour convoquer un Conseil des ministres extraordinaire face à l’escalade.
+Sans cette coordination, le risque est celui de dispersion, de doublons, ou de projets non alignés aux priorités. L’administration joue donc un rôle de chef d’orchestre en matière de la réussite du plan.
 
-Ce chevauchement entre calendrier électoral provincial et gestion de crise commerciale fédérale illustre la fragilité potentielle du «front uni». La pression politique interne, la proximité d’échéances électorales et la diversité des intérêts sectoriels provinciaux (aérospatiale au Québec, énergie et agriculture en Alberta et dans les Prairies, industrie automobile en Ontario) restent des points de fracture possibles, même si aucune rupture ouverte n’est encore constatée. L’opinion publique canadienne, tel qu’elle s’exprime dans les commentaires et sondages informels, demeure globalement favorable à la fermeté, mais des voix critiques émergent, reprochant au gouvernement le manque de transparence sur les termes exacts de l’accord refusé à Washington, signe que la légitimité de la rupture négociée fin août pourrait s’éroder si les coûts économiques se matérialisent rapidement.
+> **2. Mobilisation et gestion des ressources publiques**
 
-### Vers lequel des trois scénarios?
+Le plan prévoit un volume d’investissement très élevé ( 30 milliards USD\[9]).
 
-Les événements ultérieurs au 8 septembre orientent davantage vers le scénario 2, celui d’une guerre prolongée que vers une désescalade rapide. L’absence de reprise des discussions entre Ottawa et Washington, la persistance des menaces américaines pour janvier 2027 sur l’automobile et l’acier, et l’élargissement du conflit à un dossier industriel symbolique comme Bombardier suggèrent que la fenêtre de négociation implicite laissée par le calendrier du 8 septembre ne s’est pas ouverte. Le scénario d’escalade contrôlée, qui reposait sur l’hypothèse d’une nouvelle ronde de pourparlers avant l’hiver, paraît à ce stade moins probable, sauf revirement rapide de l’administration américaine sous la pression de ses propres filières exposées (construction, distribution, agroalimentaire), où des voix s’inquiètent déjà de la hausse des prix à la consommation.
+L’administration doit :
 
-Les premiers indices de transmission économique. Les estimations disponibles pour les ménages canadiens hausse du panier alimentaire de l’ordre de plusieurs centaines de dollars sur l’année confirment que la transmission des contre-tarifs aux prix intérieurs se fait de manière diffuse mais réelle, sans ligne visible sur les factures, ce qui atténue la perception immédiate du coût politique de la riposte mais ne l’annule pas à moyen terme. Ce mécanisme conforte l’ampleur de l’avertissement macroéconomique déjà cité recul potentiel du PIB canadien et pertes d’emplois massives dans le scénario avec représailles et invite à surveiller de près les indicateurs de l’automne: évolution de l’inflation, données d’emploi sectorielles, décisions de la banque centrale.
 
-Ce que cela signifie pour la stratégie canadienne. Trois implications se dégagent. D’abord, la crédibilité de la riposte canadienne se jouera moins sur son ampleur initiale que sur sa tenue dans la durée face à des mesures de contournement américaines ciblées et symboliquement chargées. Ensuite, la protection des secteurs stratégiques à forte intégration continentale (aérospatiale, automobile) devra être traitée comme un enjeu distinct des tarifs généralistes, avec des mécanismes de soutien dédiés. Enfin, l’accélération de la diversification vers l’Union européenne et l’Indo-Pacifique, recommandée dans la note, prend une urgence supplémentaire: chaque semaine sans désescalade renforce l’argument en faveur d’un repositionnement structurel plutôt que d’un simple attentisme en vue d’un hypothétique retour à la table des négociations.
 
-En définitive, les deux premières semaines suivant l’entrée en vigueur des contre-tarifs ne tranchent pas encore entre résilience et cicatrices durables, mais elles déplacent le centre de gravité du conflit vers une confrontation plus longue, plus diffuse dans ses effets sur les prix, et plus susceptible de tester la cohésion fédérale-provinciale que ne le laissait présager la seule chronique de la rupture d’août 2026.
+* Élaborer des mécanismes de mobilisation de recettes publiques, de dons, d’investissements privés/partenariats publics-privés. Le document mentionne que les recettes totales (y compris dons) sont projetées à 23,6 % du PIB sur 2025-2030 contre 15,2 % antérieurement\[10] ;
+* Assurer la transparence, la bonne gestion budgétaire, l’affectation efficiente des fonds ;
+* Mettre en place des dispositifs de suivi financier pour veiller à ce que les ressources atteignent les projets prévus.
 
-De l’impasse des négociations à [Washington](https://www.lesaffaires.com/tag/washington/) à la préparation d’une riposte canadienne concluait que la capacité d’[Ottawa](https://www.lesaffaires.com/tag/ottawa/) à conjuguer fermeté tactique, cohésion interne et repositionnement stratégique déterminerait si la crise débouche sur une autonomie économique accrue ou sur des cicatrices durables. Les événements des deux semaines suivantes permettent déjà de tester cette hypothèse et d’affiner les trois scénarios envisagés.
+
+
+L’efficacité de cette fonction est critique : sans flux financiers fiables et bien gérés, les projets restent en attente.
+
+> **3. Mise en œuvre administrative et institutionnelle**
+
+L’administration est celle qui doit traduire les orientations stratégiques en plans opérationnels : définir les calendriers, désigner les responsables de gestion, assurer la délivrance des autorisations nécessaires, suivre l’avancement des différents projets, corriger les écarts et ajuster le plan selon les priorités. Par exemple : dans le plan, un séquencement est indiqué : voir section « Séquencement de Tchad Connexion 2030\[11] ».
+
+Par ailleurs, l’administration devra également renforcer ses capacités internes (gestion de projet, suivi-évaluation, gestion des données) pour pouvoir piloter les 268 projets et réformes.
+
+> **4. Gouvernance, régulation et création d’un environnement favorable**
+
+Pour que les investissements publics et privés se réalisent et soient efficaces, l’administration doit garantir un environnement institutionnel et réglementaire stable. Il s’agit de :
+
+
+
+* Renforcer la bonne gouvernance, l’État de droit, la performance de l’administration publique. Cela est déjà mentionné dans le document « Vision 2030 : le Tchad que nous voulons » comme un enjeu\[12] ;
+* Assurer la simplification des procédures administratives, éventuellement promouvoir les partenariats public-privé. Le plan mentionne la privatisation de certaines entreprises publiques pour mobiliser l’expertise internationale\[13] ;
+* Veiller à la cohérence entre les politiques sectorielles (énergie, eau, transport, numérique) et les textes législatifs/réglementaires.
+
+
+
+> **5. Suivi-évaluation, contrôle et redevabilité**
+
+Un plan de cette ampleur nécessite des systèmes de suivi et d’évaluation rigoureux : l’administration doit mettre en place des indicateurs de performance, des rapports réguliers et des audits. Le document mentionne l’importance des « modèles de gouvernance » et d’un respect des systèmes de gouvernance existants : « Le respect des systèmes de gouvernance existants\[14] ». Sans cela, le plan risque de se heurter aux risques suivants : manque d’informations et des indicateurs sur les progrès, absence d’évaluation ou de dérives.
+
+> **6. Décentralisation et ancrage territorial**
+
+Le plan met l’accent sur la « connexion » du territoire et le désenclavement. L’administration locale (provinces, départements, communes) aura donc un rôle à jouer pour que les projets atteignent toutes les zones, y compris rurales ou isolées. Le défi est de garantir que l’administration centrale travaille de concert avec les administrations déconcentrées et décentralisées pour éviter les effets contreproductifs qui créent un dysfonctionnement administratif entre centre et périphéries.
+
+> **7. Mobilisation des parties prenantes et communication**
+
+Enfin, l’administration joue un rôle d’interface : avec la société civile, le secteur privé national et international, les communautés locales, les bailleurs et partenaires internationaux. Elle doit porter la vision, assurer la communication, mobiliser l’adhésion, gérer les conflits d’intérêts potentiels, informer sur les avancées. Ainsi, le plan mentionne qu’il s’agit d’un « modèle de développement inclusif\[15] ».
+
+> **Points de vigilance et défis pour l’administration**
+>
+> Même avec un rôle bien défini, plusieurs défis s’imposent :
+
+
+
+* **Capacité administrative**
+
+   : La mise en œuvre d’un tel plan nécessite des compétences en gestion de projets, suivi financier, évaluation, etc. Si l’administration manque de ces capacités, il y aura un risque d’inefficacité sur la mise en œuvre du plan ;
+* **Financement clair et durable**
+
+   : Bien que le plan prévoit 30 milliards USD d’investissements, la question du « comment » financer reste posée. Le plan est ambitieux, mais il semble que toutes les sources du financement pour atteindre le montant de 30 milliards USD n’ont pas été bien prédéfinies\[16] ;
+* **Coordination entre acteurs**
+
+   : Dans un pays vaste comme le Tchad avec une superficie de 1,284 000 M km² et aux infrastructures encore limitées, la coordination entre l’administration centrale, locale, secteur privé, partenaires internationaux est un défi ;
+* **Suivi et redevabilité**
+
+   : Sans systèmes robustes de suivi/évaluation, il sera difficile de savoir ce qui avance véritablement ;
+* **Environnement externe**
+
+   : Le contexte régional (instabilité au Sahel), les fluctuations des prix des hydrocarbures (le Tchad dépend de l’or noir), et la dépendance à l’aide extérieure peuvent fragiliser la mise en œuvre. L’administration doit prendre en compte le risque de ces facteurs externes\[17].
+
+**En conclusion :** le rôle de l’administration tchadienne est central pour la réussite du plan « Tchad Connexion 2030 ». Elle doit endosser plusieurs fonctions : pilotage stratégique, mobilisation et gestion des ressources, mise en œuvre opérationnelle, création d’un cadre institutionnel favorable, suivi-évaluation, coordination territoriale, mobilisation des parties prenantes.
+
+La réussite de ce plan dépendra en grande partie de la capacité de l’administration à combiner ces fonctions, à faire preuve de réactivité, d’efficacité et de transparence. Le potentiel est réel : vaste territoire, position stratégique, jeunesse, richesse de diverses ressources. Mais les défis sont nombreux : capacités administratives, financement, coordination, environnement externe.
+
+En d’autres termes : si l’administration tchadienne parvient à jouer pleinement son rôle, le plan pourrait amorcer une transformation significative du pays d’ici 2030. Sinon, le plan risque de demeurer un stratégique document sur papier. Pour finir, à ce stade, le plan en cours déploiement, l’évaluation finale de sa « réussite » n’est pas encore possible.
+
+ 
+
+\[1] [Alwihda Info+5Tchadinfos+5](https://www.alwihdainfo.com/Le-Tchad-adopte-Tchad-Connexion-2030--un-Plan-National-de-Developpement-ambitieux-a-l-horizon-2030_a141485.html?utm)
+
+ 
+
+\[2] [Alwihda Info+2Journal Le Pays | Tchad+2](https://www.alwihdainfo.com/Le-Tchad-adopte-Tchad-Connexion-2030--un-Plan-National-de-Developpement-ambitieux-a-l-horizon-2030_a141485.html?utm)
+
+\[3] [SikaFinance+](https://www.sikafinance.com/marches/le-tchad-adopte-un-plan-national-de-developpement-de-30-milliards-de-dollars-usd_52939?utm_)[2toumaiwebmedias.com](http://2toumaiwebmedias.com/)[+2](https://www.sikafinance.com/marches/le-tchad-adopte-un-plan-national-de-developpement-de-30-milliards-de-dollars-usd_52939?utm_)
+
+\[4] [tchadconnexion2030.td](http://tchadconnexion2030.td/)[+3Manara Radio Télévision+](https://manara.td/le-tchad-adopte-le-plan-tchad-connexion-2030-pour-impulser-son-developpement-economique-et-social/?utm_)[3tribuneechos.com](http://3tribuneechos.com/)[+3](https://manara.td/le-tchad-adopte-le-plan-tchad-connexion-2030-pour-impulser-son-developpement-economique-et-social/?utm_)
+
+\[5] [RFI+1](https://www.rfi.fr/fr/podcasts/afrique-%C3%A9conomie/20250615-tchad-connexion-2030-le-nouveau-plan-national-de-d%C3%A9veloppement-pour-moderniser-le-pays?utm_)
+
+\[6] [Tchadinfos+2](https://www.tribuneechos/posts/tchad-le-pnd-tchad-connexion-2030-adopt%C3%A9-le-29-mai-2025-en-conseil-des-ministres/1074382698125367/?utm_)
+
+\[7] [Tchad-connexion-2030-pnd/?](https://frtchad-connexion-2030-pnd/?)
+
+\[8] Ibidem
+
+\[9] [Le 360 Afrique+](https://afrique.le360.ma/economie/le-tchad-adopte-un-nouveau-plan-de-developpement-de-30-milliards-de-dollars_ILK4CG4IVFBO5BTAJF6VLQZVA4/?utm)[2toumaiwebmedias.com](http://2toumaiwebmedias.com/)[+2](https://afrique.le360.ma/economie/le-tchad-adopte-un-nouveau-plan-de-developpement-de-30-milliards-de-dollars_ILK4CG4IVFBO5BTAJF6VLQZVA4/?utm)
+
+\[10] Ibid
+
+\[11] Ibid
+
+\[12] [FAOLEX+1](https://faolex.fao.org/docs/pdf/Cha186305.pdf?)
+
+\[13] Ibid
+
+\[14] Ibid
+
+\[15] [tchadconnexion2030.td](http://tchadconnexion2030.td/)[+1](https://tchadconnexion2030.td/?)
+
+\[16] [Afrimag+1](https://afrimag.net/tchad-plan-milliards-dollars-financement-inconnu/?)
+
+\[17] [reuters.com](http://reuters.com/)[+1](https://www.reuters.com/world/africa/short-take-chad-seeks-630-million-financial-support-imf-2025-05-23/)
