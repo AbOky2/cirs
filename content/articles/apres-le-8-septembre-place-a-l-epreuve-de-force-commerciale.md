@@ -1,7 +1,7 @@
 ---
 title: "GNL: quelles sont les occasions énergétiques pour le Canada et le Québec?"
 date: 2026-06-30
-category: Notes de politiques publiques
+category: Analyses stratégiques
 author: Hassan Ahmat Djamaladine
 draft: false
 ---
