@@ -1,146 +1,37 @@
 ---
-title: Quel est le rôle de l’administration tchadienne dans la réussite du plan
-  national de développement (PND) Tchad Connexion 2030 ?
-date: 2025-10-23
+title: "GNL: quelles sont les occasions énergétiques pour le Canada et le Québec?"
+date: 2026-06-30
 category: Notes de politiques publiques
 author: Hassan Ahmat Djamaladine
 draft: false
 ---
+Quatre ans après le début du conflit en Ukraine, la géographie gazière mondiale a été profondément remodelée. La volonté de l’Union européenne (UE) de se prémunir contre le chantage énergétique russe, comme lors des coupures de 2009, 2014 et 2022 a provoqué une réorganisation des chaînes d’approvisionnement. Au-delà de cet aspect sécuritaire, l’UE a également boycotté le gaz russe pour priver Moscou des revenus finançant son effort de guerre.
 
+Ainsi, les exportations russes vers l’Europe se sont effondrées, passant de 45% à environ 13% des parts de marché en 2025, la quête de nouvelles sources d’exportations vers les pays «amis» s’intensifie, notamment vers l’Inde et la Chine. Dans ce contexte de raréfaction de l’offre fiable et de volatilité des prix (le TTF ayant dépassé 50€/MWh début 2026), le Canada, grâce à l’entrée en service de son premier terminal GNL à Kitimat, se trouve en position de fournisseur alternatif. L’enjeu stratégique est de savoir si le Québec et le Canada peuvent capitaliser sur cette brèche géoéconomique pour diversifier leurs débouchés et jouer un rôle stabilisateur sur le marché transatlantique.
 
->  
->
-> **Contexte et enjeux du plan « Tchad Connexion 2030 »**
 
-Le Tchad a adopté un nouveau plan national de développement intitulé **Tchad Connexion 2030\[1]**. Le plan est décliné en 17 programmes regroupant quelque 268 projets et réformes multisectoriels\[2]. Il vise notamment à mobiliser environ **30 milliards de dollars US** (environ 18 000 milliards de FCFA) d’investissements publics et privés entre 2025 et 2030\[3]. Il s’appuie sur quatre domaines d’intervention majeurs : infrastructures stratégiques (énergie, eau, transport, numérique), renforcement du capital humain (éducation, santé, emploi), diversification économique (agriculture, élevage, mines, industries) et inclusion/résilience\[4]. Il est présenté comme un tournant pour le pays, visant à faire du Tchad un « hub » logistique en Afrique centrale, à valoriser son potentiel géographique, humain et économique\[5].
 
-En effet, l’administration tchadienne est appelée à jouer un rôle central dans la déclinaison du plan à travers : la planification, coordination, mobilisation des ressources, pilotage, suivi/évaluation, gouvernance, etc.
+### La percée canadienne sur le marché asiatique comme prélude à l’Europe
 
-> **Le rôle de l’administration tchadienne**
+Selon les statistiques officielles, l’intégration du Canada dans la nouvelle donne gazière se concrétise. Depuis juillet 2025, le terminal de Kitimat permet au pays de briser son ancien monopole commercial avec les États-Unis. En février 2026, les exportations vers les États-Unis ont reculé de 6% en raison de conditions climatiques plus douces, tandis que les expéditions vers d’autres pays (notamment asiatiques) ont bondi à 45,3 millions de gigajoules. Cette tendance s’inscrit dans une hausse globale de la production canadienne, qui a atteint des sommets en janvier 2026 avec 760,5 millions de gigajoules.
 
-Voici les principaux rôles que l’administration tchadienne (au sens large : ministères, agences publiques, administrations déconcentrées/décentralisées) doit assumer pour la réussite de « Tchad Connexion 2030 ».
+Cependant, ce premier virage est asiatique : pour l’instant, tout le GNL canadien part vers l’Asie. L’Europe, bien que demandeuse, reste un marché de second rang, pénalisée par des coûts de transport plus élevés et des contrats historiques avec les États-Unis et le Qatar. Le véritable diagnostic géoéconomique pour le Québec et le Canada réside donc dans leur capacité à convertir cette performance logistique en influence politique sur le théâtre européen, où la guerre économique entre l’UE et la Russie fait rage.
+ 
 
-> **1. Pilotage stratégique et coordination**
+### Le Québec, interface politique et hub énergétique potentiel
 
-L’administration centrale est responsable de l’élaboration et de la mise en place du cadre stratégique : le plan lui-même a été adopté par le gouvernement\[6],elle doit également assurer la coordination entre les différents programmes, ministères, agences et niveaux territoriaux (provinces, départements, communes) :
+Cependant, si le Canada-Ouest assure la production et l’exportation physique, le Québec possède un atout géoéconomique majeur dans le contexte de rupture avec Moscou : son positionnement politique et industriel.
 
+Premièrement, la carte géopolitique de l’énergie propre: l’Europe cherche à sortir du gaz russe tout en verdissant son mix énergétique via l’hydrogène et le biométhane. Le Québec dispose de ressources hydroélectriques massives et d’un savoir-faire en électrolyse. Selon des analystes de l’Oxford Institute for Energy Studies, les entreprises québécoises pourraient devenir fournisseurs de «molécules vertes» (hydrogène vert, ammoniac) vers l’Europe de l’Ouest, profitant des corridors maritimes de l’Est du Canada.
 
+Deuxièmement, la fin de la dépendance aux États-Unis : la hausse des exportations canadiennes vers les marchés outre-mer réduit mécaniquement la dépendance du Canada au marché américain unique. Pour le Québec, industrialisé et tributaire des importations, cet équilibre est crucial. En renforçant les liens énergétiques directs avec l’UE, le Canada se dote d’un levier de souveraineté nationale. Le Québec, porte d’entrée francophone en Amérique du Nord, pourrait devenir un partenaire privilégié des entreprises européennes (TotalEnergies, EDF) cherchant à sécuriser des approvisionnements hors Russie.
 
-* Le document officiel mentionne l’« Unité d’appui à la mise en œuvre » qui doit accompagner les ministères et institutions concernés\[7] ;
-* Le ministère des Finances, du Budget, de l’Economie, du Plan et de la Coopération internationale est le ministère porteur\[8].
 
 
+### Un scénario de «pont énergétique» pour 2027
 
-Sans cette coordination, le risque est celui de dispersion, de doublons, ou de projets non alignés aux priorités. L’administration joue donc un rôle de chef d’orchestre en matière de la réussite du plan.
+Avec la mise en service de capacités d’exportation accrues, le Canada pourrait, d’ici 2028, capter jusqu’à 10% des nouveaux contrats GNL européens. Le Québec en bénéficierait indirectement via la construction de chaînes de valeur dans les ports de l’Atlantique (Saguenay, Lévis) pour la transformation du gaz en produits dérivés (méthanol, hydrogène).
 
-> **2. Mobilisation et gestion des ressources publiques**
+Si la Russie continue de fermer les vannes vers l’Europe, l’Allemagne et la France se tourneront naturellement vers les fournisseurs stables que sont les États-Unis, la Norvège et le Canada. Ce dernier répond à l’exigence de sécurité énergétique posée par les sanctions: prévisibilité des prix et absence de chantage politique.
 
-Le plan prévoit un volume d’investissement très élevé ( 30 milliards USD\[9]).
-
-L’administration doit :
-
-
-
-* Élaborer des mécanismes de mobilisation de recettes publiques, de dons, d’investissements privés/partenariats publics-privés. Le document mentionne que les recettes totales (y compris dons) sont projetées à 23,6 % du PIB sur 2025-2030 contre 15,2 % antérieurement\[10] ;
-* Assurer la transparence, la bonne gestion budgétaire, l’affectation efficiente des fonds ;
-* Mettre en place des dispositifs de suivi financier pour veiller à ce que les ressources atteignent les projets prévus.
-
-
-
-L’efficacité de cette fonction est critique : sans flux financiers fiables et bien gérés, les projets restent en attente.
-
-> **3. Mise en œuvre administrative et institutionnelle**
-
-L’administration est celle qui doit traduire les orientations stratégiques en plans opérationnels : définir les calendriers, désigner les responsables de gestion, assurer la délivrance des autorisations nécessaires, suivre l’avancement des différents projets, corriger les écarts et ajuster le plan selon les priorités. Par exemple : dans le plan, un séquencement est indiqué : voir section « Séquencement de Tchad Connexion 2030\[11] ».
-
-Par ailleurs, l’administration devra également renforcer ses capacités internes (gestion de projet, suivi-évaluation, gestion des données) pour pouvoir piloter les 268 projets et réformes.
-
-> **4. Gouvernance, régulation et création d’un environnement favorable**
-
-Pour que les investissements publics et privés se réalisent et soient efficaces, l’administration doit garantir un environnement institutionnel et réglementaire stable. Il s’agit de :
-
-
-
-* Renforcer la bonne gouvernance, l’État de droit, la performance de l’administration publique. Cela est déjà mentionné dans le document « Vision 2030 : le Tchad que nous voulons » comme un enjeu\[12] ;
-* Assurer la simplification des procédures administratives, éventuellement promouvoir les partenariats public-privé. Le plan mentionne la privatisation de certaines entreprises publiques pour mobiliser l’expertise internationale\[13] ;
-* Veiller à la cohérence entre les politiques sectorielles (énergie, eau, transport, numérique) et les textes législatifs/réglementaires.
-
-
-
-> **5. Suivi-évaluation, contrôle et redevabilité**
-
-Un plan de cette ampleur nécessite des systèmes de suivi et d’évaluation rigoureux : l’administration doit mettre en place des indicateurs de performance, des rapports réguliers et des audits. Le document mentionne l’importance des « modèles de gouvernance » et d’un respect des systèmes de gouvernance existants : « Le respect des systèmes de gouvernance existants\[14] ». Sans cela, le plan risque de se heurter aux risques suivants : manque d’informations et des indicateurs sur les progrès, absence d’évaluation ou de dérives.
-
-> **6. Décentralisation et ancrage territorial**
-
-Le plan met l’accent sur la « connexion » du territoire et le désenclavement. L’administration locale (provinces, départements, communes) aura donc un rôle à jouer pour que les projets atteignent toutes les zones, y compris rurales ou isolées. Le défi est de garantir que l’administration centrale travaille de concert avec les administrations déconcentrées et décentralisées pour éviter les effets contreproductifs qui créent un dysfonctionnement administratif entre centre et périphéries.
-
-> **7. Mobilisation des parties prenantes et communication**
-
-Enfin, l’administration joue un rôle d’interface : avec la société civile, le secteur privé national et international, les communautés locales, les bailleurs et partenaires internationaux. Elle doit porter la vision, assurer la communication, mobiliser l’adhésion, gérer les conflits d’intérêts potentiels, informer sur les avancées. Ainsi, le plan mentionne qu’il s’agit d’un « modèle de développement inclusif\[15] ».
-
-> **Points de vigilance et défis pour l’administration**
->
-> Même avec un rôle bien défini, plusieurs défis s’imposent :
-
-
-
-* **Capacité administrative**
-
-   : La mise en œuvre d’un tel plan nécessite des compétences en gestion de projets, suivi financier, évaluation, etc. Si l’administration manque de ces capacités, il y aura un risque d’inefficacité sur la mise en œuvre du plan ;
-* **Financement clair et durable**
-
-   : Bien que le plan prévoit 30 milliards USD d’investissements, la question du « comment » financer reste posée. Le plan est ambitieux, mais il semble que toutes les sources du financement pour atteindre le montant de 30 milliards USD n’ont pas été bien prédéfinies\[16] ;
-* **Coordination entre acteurs**
-
-   : Dans un pays vaste comme le Tchad avec une superficie de 1,284 000 M km² et aux infrastructures encore limitées, la coordination entre l’administration centrale, locale, secteur privé, partenaires internationaux est un défi ;
-* **Suivi et redevabilité**
-
-   : Sans systèmes robustes de suivi/évaluation, il sera difficile de savoir ce qui avance véritablement ;
-* **Environnement externe**
-
-   : Le contexte régional (instabilité au Sahel), les fluctuations des prix des hydrocarbures (le Tchad dépend de l’or noir), et la dépendance à l’aide extérieure peuvent fragiliser la mise en œuvre. L’administration doit prendre en compte le risque de ces facteurs externes\[17].
-
-**En conclusion :** le rôle de l’administration tchadienne est central pour la réussite du plan « Tchad Connexion 2030 ». Elle doit endosser plusieurs fonctions : pilotage stratégique, mobilisation et gestion des ressources, mise en œuvre opérationnelle, création d’un cadre institutionnel favorable, suivi-évaluation, coordination territoriale, mobilisation des parties prenantes.
-
-La réussite de ce plan dépendra en grande partie de la capacité de l’administration à combiner ces fonctions, à faire preuve de réactivité, d’efficacité et de transparence. Le potentiel est réel : vaste territoire, position stratégique, jeunesse, richesse de diverses ressources. Mais les défis sont nombreux : capacités administratives, financement, coordination, environnement externe.
-
-En d’autres termes : si l’administration tchadienne parvient à jouer pleinement son rôle, le plan pourrait amorcer une transformation significative du pays d’ici 2030. Sinon, le plan risque de demeurer un stratégique document sur papier. Pour finir, à ce stade, le plan en cours déploiement, l’évaluation finale de sa « réussite » n’est pas encore possible.
-
- 
-
-\[1] [Alwihda Info+5Tchadinfos+5](https://www.alwihdainfo.com/Le-Tchad-adopte-Tchad-Connexion-2030--un-Plan-National-de-Developpement-ambitieux-a-l-horizon-2030_a141485.html?utm)
-
- 
-
-\[2] [Alwihda Info+2Journal Le Pays | Tchad+2](https://www.alwihdainfo.com/Le-Tchad-adopte-Tchad-Connexion-2030--un-Plan-National-de-Developpement-ambitieux-a-l-horizon-2030_a141485.html?utm)
-
-\[3] [SikaFinance+](https://www.sikafinance.com/marches/le-tchad-adopte-un-plan-national-de-developpement-de-30-milliards-de-dollars-usd_52939?utm_)[2toumaiwebmedias.com](http://2toumaiwebmedias.com/)[+2](https://www.sikafinance.com/marches/le-tchad-adopte-un-plan-national-de-developpement-de-30-milliards-de-dollars-usd_52939?utm_)
-
-\[4] [tchadconnexion2030.td](http://tchadconnexion2030.td/)[+3Manara Radio Télévision+](https://manara.td/le-tchad-adopte-le-plan-tchad-connexion-2030-pour-impulser-son-developpement-economique-et-social/?utm_)[3tribuneechos.com](http://3tribuneechos.com/)[+3](https://manara.td/le-tchad-adopte-le-plan-tchad-connexion-2030-pour-impulser-son-developpement-economique-et-social/?utm_)
-
-\[5] [RFI+1](https://www.rfi.fr/fr/podcasts/afrique-%C3%A9conomie/20250615-tchad-connexion-2030-le-nouveau-plan-national-de-d%C3%A9veloppement-pour-moderniser-le-pays?utm_)
-
-\[6] [Tchadinfos+2](https://www.tribuneechos/posts/tchad-le-pnd-tchad-connexion-2030-adopt%C3%A9-le-29-mai-2025-en-conseil-des-ministres/1074382698125367/?utm_)
-
-\[7] [Tchad-connexion-2030-pnd/?](https://frtchad-connexion-2030-pnd/?)
-
-\[8] Ibidem
-
-\[9] [Le 360 Afrique+](https://afrique.le360.ma/economie/le-tchad-adopte-un-nouveau-plan-de-developpement-de-30-milliards-de-dollars_ILK4CG4IVFBO5BTAJF6VLQZVA4/?utm)[2toumaiwebmedias.com](http://2toumaiwebmedias.com/)[+2](https://afrique.le360.ma/economie/le-tchad-adopte-un-nouveau-plan-de-developpement-de-30-milliards-de-dollars_ILK4CG4IVFBO5BTAJF6VLQZVA4/?utm)
-
-\[10] Ibid
-
-\[11] Ibid
-
-\[12] [FAOLEX+1](https://faolex.fao.org/docs/pdf/Cha186305.pdf?)
-
-\[13] Ibid
-
-\[14] Ibid
-
-\[15] [tchadconnexion2030.td](http://tchadconnexion2030.td/)[+1](https://tchadconnexion2030.td/?)
-
-\[16] [Afrimag+1](https://afrimag.net/tchad-plan-milliards-dollars-financement-inconnu/?)
-
-\[17] [reuters.com](http://reuters.com/)[+1](https://www.reuters.com/world/africa/short-take-chad-seeks-630-million-financial-support-imf-2025-05-23/)
+L’éclatement de l’axe gazier Europe-Russie ouvre une fenêtre de tir historique pour le Canada. L’Europe se prépare à un hiver 2027 potentiellement difficile avec la fin programmée des imports russes. La montée en puissance des exportations canadiennes démontre la capacité logistique du pays à répondre à la demande mondiale. Enfin, un débouché économique supplémentaire pour le Canada à ne pas négliger.
