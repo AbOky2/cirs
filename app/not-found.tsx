@@ -1,2 +1,0 @@
-import {Header,Footer,PageHero,Btn} from '@/components/site';
-export default function NotFound(){return <><Header/><main id="main"><PageHero tag="Erreur 404" title="Cette page" tone="n’existe pas." lead={<><p>Elle a peut-être été déplacée. Retrouvez les expertises et les analyses de CIRS-Conseil depuis l’accueil.</p><div style={{marginTop:28}}><Btn href="/" variant="gold">Revenir à l’accueil</Btn></div></>}/></main><Footer/></>}

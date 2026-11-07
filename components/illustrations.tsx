@@ -2,6 +2,9 @@
 import {motion} from 'framer-motion';
 import {WORLD_W,WORLD_H,WORLD_HUBS} from '@/lib/world';
 import {ease} from '@/components/motion';
+import {useLang} from '@/components/i18n';
+
+const labels={fr:{impact:'Impact',prob:'Probabilité',goal:'Objectif'},en:{impact:'Impact',prob:'Probability',goal:'Target'},ar:{impact:'الأثر',prob:'الاحتمال',goal:'الهدف'}};
 
 /* Illustrations des cinq domaines d’expertise — même grammaire : traits fins marine, accents or. */
 const NAVY='#0d1e45',GOLD='#d9ad55';
@@ -40,10 +43,10 @@ function Geo(){
 /** 03 — Risques et environnement stratégique : matrice probabilité × impact. */
 function Risques(){
   const pal=['#eef3f9','#e3eaf4','#f5e8c6','#eccf8a','#d9ad55','#c4963e','#a87a28','#8b6420','#6f4f19'];
-  const S=30,G=6,x0=136,y0=22;
+  const S=30,G=6,x0=136,y0=22;const l=labels[useLang().lang];
   return <svg viewBox={VB} className="ill" aria-hidden="true">
-    <text x="118" y="120" transform="rotate(-90 118 120)" textAnchor="middle" className="ill-txt">Impact</text>
-    <text x={x0+(5*S+4*G)/2} y="230" textAnchor="middle" className="ill-txt">Probabilité</text>
+    <text x="118" y="120" transform="rotate(-90 118 120)" textAnchor="middle" className="ill-txt">{l.impact}</text>
+    <text x={x0+(5*S+4*G)/2} y="230" textAnchor="middle" className="ill-txt">{l.prob}</text>
     {Array.from({length:25},(_,n)=>{const i=n%5,j=Math.floor(n/5);const s=i+(4-j);return <motion.rect key={n} x={x0+i*(S+G)} y={y0+j*(S+G)} width={S} height={S} rx="7" fill={pal[s]} initial={{opacity:0,scale:.4}} animate={{opacity:1,scale:1}} transition={{duration:.5,ease,delay:.04*(i+j)}}/>})}
     <path d={`M${x0} ${y0+1*(S+G)+S/2}H${x0+3*(S+G)+S/2}V${y0+5*S+4*G}`} fill="none" stroke={NAVY} strokeOpacity=".5" strokeDasharray="3 4"/>
     <rect x={x0+3*(S+G)-3} y={y0+1*(S+G)-3} width={S+6} height={S+6} rx="9" fill="none" stroke={NAVY} strokeWidth="1.6" className="ill-ping-rect"/>
@@ -64,10 +67,10 @@ function Communication(){
 /** 05 — Évaluation des politiques publiques : mesurer, comparer à l’objectif. */
 function Evaluation(){
   const bars=[46,64,56,84,98,122];const bx=(n:number)=>92+n*40;const base=204;
-  const pts=bars.map((h,n)=>[bx(n)+13,base-h-10] as const);
+  const pts=bars.map((h,n)=>[bx(n)+13,base-h-10] as const);const l=labels[useLang().lang];
   return <svg viewBox={VB} className="ill" aria-hidden="true">
     <path d={`M78 ${base}H332`} stroke={NAVY} strokeOpacity=".3"/>
-    <path d="M78 74H332" stroke={GOLD} strokeDasharray="4 5"/><text x="332" y="66" textAnchor="end" className="ill-txt">Objectif</text>
+    <path d="M78 74H332" stroke={GOLD} strokeDasharray="4 5"/><text x="332" y="66" textAnchor="end" className="ill-txt">{l.goal}</text>
     {bars.map((h,n)=><motion.rect key={n} x={bx(n)} y={base-h} width="26" height={h} rx="6" fill={n===bars.length-1?GOLD:'#dde6f2'} initial={{scaleY:0}} animate={{scaleY:1}} transition={{duration:.8,ease,delay:.08*n}} style={{originY:1}}/>)}
     <motion.path d={'M'+pts.map(p=>p.join(' ')).join('L')} fill="none" stroke={NAVY} strokeWidth="1.8" initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:1.1,ease,delay:.5}}/>
     {pts.map(([x,y],n)=><motion.circle key={n} cx={x} cy={y} r="3.5" fill="#fff" stroke={NAVY} strokeWidth="1.5" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.6+n*.12}}/>)}

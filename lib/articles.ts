@@ -21,4 +21,5 @@ export function renderMarkdown(md:string){return marked.parse(md,{async:false})}
 import {formatDate,readingTime} from './format';
 export {formatDate,readingTime};
 import type {ArticleCardData} from '@/components/articles';
-export function toCard(a:Article):ArticleCardData{return {slug:a.slug,title:a.title,category:a.category,dateIso:a.date,dateLabel:formatDate(a.date),minutes:readingTime(a.body),summary:a.summary,...(a.cover?{cover:a.cover}:{})}}
+import type {Lang} from './i18n';
+export function toCard(a:Article,lang:Lang='fr'):ArticleCardData{return {slug:a.slug,title:a.title,category:a.category,dateIso:a.date,dateLabel:formatDate(a.date,lang),minutes:readingTime(a.body),summary:a.summary,...(a.cover?{cover:a.cover}:{})}}

@@ -1,6 +1,6 @@
 # CIRS-Conseil Inc.
 
-Site vitrine en français développé avec Next.js 16 App Router, React 19, TypeScript strict et Framer Motion. Export statique, hébergeable sans serveur applicatif.
+Site vitrine trilingue (français, anglais, arabe) développé avec Next.js 16 App Router, React 19, TypeScript strict et Framer Motion. Export statique, hébergeable sans serveur applicatif.
 
 ## Développement
 
@@ -8,11 +8,15 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19, Type
 
 ## Organisation
 
-- `app/` : pages (accueil, équipe, articles, événements, contact, 404), métadonnées et feuille de style unique `globals.css`.
-- `lib/content.ts` : contenus métier (coordonnées, expertises, services, secteurs, régions, méthode, FAQ, chiffres clés).
+- `app/(fr)/` : version française, servie à la racine (`/`, `/equipe/`, `/articles/`, `/articles/<slug>/`, `/evenements/`, `/contact/`).
+- `app/[lang]/` : versions anglaise (`/en/…`) et arabe (`/ar/…`, de droite à gauche). Deux layouts racines ; `app/global-not-found.tsx` sert la page 404 commune.
+- `components/views.tsx` : pages complètes partagées entre les trois langues et métadonnées localisées (balises `hreflang`, URL canoniques).
+- `components/document.tsx` : coquille HTML (`lang`, `dir`), polices et feuille de style unique `app/globals.css`.
+- `lib/i18n.ts` : langues, préfixes d’URL, correspondance des pages pour le sélecteur de langue.
+- `lib/content.ts` : tous les textes du site dans les trois langues (coordonnées, expertises, secteurs, régions, méthode, FAQ, pages) ; `components/i18n.tsx` les met à disposition des composants interactifs.
 - `lib/articles.ts` : lecture des articles Markdown à la compilation.
-- `components/site.tsx` : en-tête, pied de page, boutons, étiquettes, formulaire et coordonnées.
-- `components/home.tsx` : sections interactives de l’accueil (expertises, services, méthode, secteurs, FAQ, portrait).
+- `components/site.tsx` : en-tête (avec sélecteur FR · EN · ع), pied de page, boutons, étiquettes, formulaire et coordonnées.
+- `components/home.tsx` : sections interactives de l’accueil (expertises, méthode, secteurs, FAQ, portrait).
 - `components/hero.tsx` : devise avec cadre de mise au point, carte des horizons, dissolution en pixels.
 - `components/illustrations.tsx` : illustrations animées des cinq domaines d’expertise.
 - `components/motion.tsx` : primitives d’animation (apparitions, titres mot à mot, texte révélé au défilement, compteurs).
@@ -21,9 +25,15 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19, Type
 
 ## Contenus
 
-Les contenus suivent le flyer CIRS-Conseil Inc. et les documents « Modifications à faire » : rubrique À propos, page Équipe (PDG, certifications, parcours, citation de Sénèque), cinq domaines d’expertise, cinq offres de service, mention d’indépendance vis-à-vis du think tank CIRS et notice de confidentialité (Loi 25, RGPD).
+Les contenus suivent le flyer CIRS-Conseil Inc. et les documents « Modifications à faire » : rubrique À propos, page Équipe (PDG, certifications, parcours, citation de Sénèque), cinq domaines d’expertise, mention d’indépendance vis-à-vis du think tank CIRS et notice de confidentialité (Loi 25, RGPD).
 
-Aucune référence client, date d’événement ni statistique commerciale n’est inventée. Les chiffres clés de l’accueil sont des décomptes du contenu (domaines, offres, régions, pays et zones). Aucun suivi analytique, compte utilisateur ou collecte de données n’est activé ; l’espace `/admin/` sert uniquement à la rédaction des articles.
+Recommandations appliquées : traduction anglaise et arabe ; liste « Services » de la rubrique À propos alignée exactement sur les cinq domaines d’expertise ; section des cinq offres de service (Affaires publiques & institutions, Conseil en affaires, Relations publiques, Conseil sur l’environnement, Conseil en management) supprimée, ainsi que son lien de navigation.
+
+Aucune référence client, date d’événement ni statistique commerciale n’est inventée. Les chiffres clés de l’accueil sont des décomptes du contenu (domaines, secteurs, régions, pays et zones). Aucun suivi analytique, compte utilisateur ou collecte de données n’est activé ; l’espace `/admin/` sert uniquement à la rédaction des articles.
+
+## Langues
+
+Le français reste servi à la racine : les adresses existantes ne changent pas. L’anglais et l’arabe ont leurs propres adresses (`/en/`, `/ar/`), déclarées aux moteurs de recherche par des balises `hreflang`. Pour modifier un texte, éditer `lib/content.ts` : TypeScript signale toute clé manquante dans une des trois langues. La version arabe utilise Noto Kufi Arabic (titres) et Noto Sans Arabic (texte), auto-hébergées, et une mise en page miroir (flèches, positions, alignements) ; la carte du monde et les schémas restent orientés de gauche à droite. Les articles sont rédigés en français : les pages Articles anglaise et arabe les listent avec une mention et pointent vers la version française.
 
 ## Articles
 
