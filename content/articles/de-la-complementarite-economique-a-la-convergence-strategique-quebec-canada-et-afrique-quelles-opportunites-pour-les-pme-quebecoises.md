@@ -9,7 +9,7 @@ summary: " La problématique est la suivante : comment les PME québécoises
   d'exportation de matières premières ? "
 author: Hassan Ahmat Djamaladine
 cover: /images/articles/cirs-conseil-inc.-image-illustrative.jpg
-draft: true
+draft: false
 ---
 **Introduction**
 
