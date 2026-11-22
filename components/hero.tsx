@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
 import {AnimatePresence,motion,useMotionValue,useSpring,useTransform} from 'framer-motion';
 import {Radar} from 'lucide-react';
-import {regions} from '@/lib/content';
+import {useI18n} from '@/components/providers';
 import {WORLD_W,WORLD_H,WORLD_HUBS,WORLD_TWINKLES} from '@/lib/world';
 import {Dots} from '@/components/site';
 import {ease,seeded,useReducedMotionSafe} from '@/components/motion';
@@ -10,11 +10,8 @@ import {ease,seeded,useReducedMotionSafe} from '@/components/motion';
 /* ——— Devise avec cadre de mise au point ———
    Un cadre de sélection à poignées se déplace d’un verbe à l’autre ;
    la légende dessous explique le verbe actif. */
-const verbs=[
-  {w:'Anticiper.',k:'Veille',c:'Repérer les signaux avant qu’ils ne s’imposent.'},
-  {w:'Comprendre.',k:'Analyse',c:'Relier les faits, les acteurs et les dynamiques.'},
-  {w:'Décider.',k:'Orientation',c:'Traduire l’analyse en choix clairs.'}];
 export function FocusMotto(){
+  const{t}=useI18n();const verbs=t.hero.verbs;
   const reduce=useReducedMotionSafe();
   const[i,setI]=useState(0);const[paused,setPaused]=useState(false);
   useEffect(()=>{if(reduce||paused)return;const t=setInterval(()=>setI(v=>(v+1)%verbs.length),2800);return()=>clearInterval(t)},[reduce,paused]);
@@ -28,7 +25,7 @@ export function FocusMotto(){
   useLayoutEffect(()=>{measure()},[measure]);
   useEffect(()=>{const h=h1.current;if(!h)return;const ro=new ResizeObserver(()=>measure());ro.observe(h);document.fonts?.ready.then(()=>measure());const t=setTimeout(()=>setShown(true),1000);return()=>{ro.disconnect();clearTimeout(t)}},[measure]);
   return <>
-    <h1 ref={h1} className="motto" aria-label="Anticiper. Comprendre. Décider." onMouseLeave={()=>setPaused(false)}>
+    <h1 ref={h1} className="motto" aria-label={t.motto} onMouseLeave={()=>setPaused(false)}>
       {verbs.map((v,k)=><span key={v.w} ref={el=>{lines.current[k]=el}} aria-hidden="true" className={'motto-line'+(i===k?' is-on':'')} onMouseEnter={()=>{setPaused(true);setI(k)}}>
         <span className="motto-clip"><motion.span className="motto-word" initial={{y:'110%'}} animate={{y:'0%'}} transition={{duration:1.1,ease,delay:.2+k*.12}}>{v.w}</motion.span></span>
       </span>)}
@@ -37,7 +34,7 @@ export function FocusMotto(){
       </motion.span>}
     </h1>
     <motion.p className="motto-cap" aria-live="polite" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}}>
-      <AnimatePresence mode="wait"><motion.span key={i} className="motto-cap-in" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.35}}><b>{String(i+1).padStart(2,'0')} · {cur.k}</b>{cur.c}</motion.span></AnimatePresence>
+      <AnimatePresence mode="wait"><motion.span key={i} className="motto-cap-in" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}} transition={{duration:.35}}><b><span dir="ltr">{String(i+1).padStart(2,'0')}</span> · {cur.k}</b>{cur.c}</motion.span></AnimatePresence>
     </motion.p>
   </>;
 }
@@ -54,6 +51,7 @@ function arc(a:readonly number[],b:readonly number[]){
 const twinkles=WORLD_TWINKLES.split(' ').map(p=>p.split(',').map(Number) as [number,number]);
 
 export function HorizonsCard(){
+  const{t}=useI18n();const regions=t.regions;const h=t.hero;
   const reduce=useReducedMotionSafe();
   const[r,setR]=useState(0);const[paused,setPaused]=useState(false);
   useEffect(()=>{if(reduce||paused)return;const t=setInterval(()=>setR(v=>(v+1)%keys.length),3600);return()=>clearInterval(t)},[reduce,paused]);
@@ -67,7 +65,7 @@ export function HorizonsCard(){
   return <motion.div className="hz-wrap" initial={{opacity:0,y:40}} animate={{opacity:1,y:0}} transition={{duration:1.2,ease,delay:.45}} onMouseEnter={()=>setPaused(true)} onMouseLeave={()=>{setPaused(false);mx.set(0);my.set(0)}}
     onPointerMove={e=>{if(e.pointerType!=='mouse'||reduce)return;const b=e.currentTarget.getBoundingClientRect();mx.set((e.clientX-b.left)/b.width-.5);my.set((e.clientY-b.top)/b.height-.5)}}>
   <motion.div className="hz" style={{rotateX,rotateY,transformPerspective:1200}}>
-    <div className="hz-head"><span className="hz-title"><Radar size={15} strokeWidth={2}/> Nos horizons</span><span className="hz-live"><i/>Siège · Québec, Canada</span></div>
+    <div className="hz-head"><span className="hz-title"><Radar size={15} strokeWidth={2}/> {h.horizons}</span><span className="hz-live"><i/>{h.hq}</span></div>
     <div className="hz-map">
       <Dots className="hz-dots"/>
       <svg className="hz-svg" viewBox={`0 0 ${WORLD_W} ${WORLD_H}`} aria-hidden="true">
@@ -81,10 +79,10 @@ export function HorizonsCard(){
         <circle cx={q[0]} cy={q[1]} r="7" className="hz-ping hz-ping-q"/>
         <circle cx={q[0]} cy={q[1]} r="7.5" className="hz-home"/>
       </svg>
-      <span className="hz-pin-pos" style={pct(q[0],q[1])}><span className={'hz-pin hz-pin-q'+(q[1]/WORLD_H<.3?' is-below':'')}>Québec</span></span>
+      <span className="hz-pin-pos" style={pct(q[0],q[1])}><span className={'hz-pin hz-pin-q'+(q[1]/WORLD_H<.3?' is-below':'')}>{h.quebec}</span></span>
       <AnimatePresence mode="popLayout"><motion.span key={key} className="hz-pin-pos" style={pct(hub[0],hub[1])} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0,transition:{duration:.2,delay:0}}} transition={{duration:.4,delay:.9}}><span className={'hz-pin'+(hub[1]/WORLD_H<.3?' is-below':'')}>{region.name}</span></motion.span></AnimatePresence>
     </div>
-    <div className="hz-tabs" role="tablist" aria-label="Régions d’intervention">
+    <div className="hz-tabs" role="tablist" aria-label={h.regionsLabel}>
       {regions.map((g,n)=><button key={g.name} role="tab" aria-selected={n===r} className={n===r?'is-on':undefined} onClick={()=>{setR(n);setPaused(true)}}>{n===r&&<motion.span layoutId="hz-pill" className="hz-pill" transition={{type:'spring',stiffness:400,damping:34}}/>}<span>{g.name}</span></button>)}
     </div>
     <div className="hz-detail" aria-live="polite"><AnimatePresence mode="wait"><motion.div key={r} initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-6}} transition={{duration:.35}}><strong>{region.countries}</strong><p>{region.text}</p></motion.div></AnimatePresence></div>

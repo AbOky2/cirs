@@ -19,6 +19,17 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19, Type
 - `lib/world.ts` et `public/world-dots.svg` : carte du monde en points, générés par `scripts/generate-world.mjs` (voir l’en-tête du script).
 - `public/` : logo (favicon), illustration du globe, portrait du PDG, espace de rédaction `/admin/`.
 
+## Langues
+
+Le site existe en français (racine), en anglais (`/en/`) et en arabe (`/ar/`, mise en page de droite à gauche).
+
+- Textes : `lib/i18n/fr.ts` (référence), `en.ts`, `ar.ts`, de structure identique (vérifiée par TypeScript).
+- Routes : `app/(fr)/`, `app/en/`, `app/ar/` ; chaque page appelle une vue commune de `views/`. 404 globale : `app/global-not-found.tsx`.
+- Sélecteur FR / EN / ع dans l’en-tête, le menu mobile et le pied de page ; liens `hreflang` entre les versions.
+- Les analyses sont publiées en français : les versions anglaise et arabe listent les analyses et renvoient vers le texte français.
+- Polices arabes auto-hébergées : Readex Pro (titres) et Noto Sans Arabic (texte).
+- La traduction arabe est à faire relire par un locuteur natif.
+
 ## Contenus
 
 Les contenus suivent le flyer CIRS-Conseil Inc. et les documents « Modifications à faire » : rubrique À propos, page Équipe (PDG, certifications, parcours, citation de Sénèque), cinq domaines d’expertise, cinq offres de service, mention d’indépendance vis-à-vis du think tank CIRS et notice de confidentialité (Loi 25, RGPD).
