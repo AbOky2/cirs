@@ -49,7 +49,7 @@ collections:
         label: Rubrique
         widget: select
         default: Analyses stratégiques
-        options: [Analyses stratégiques, Notes de politiques publiques, Notes stratégiques, Veille internationale, Perspectives CIRS-Conseil]
+        options: [Analyses stratégiques, Notes de politiques publiques, Notes stratégiques, Veille internationale, Perspectives CIRS-Conseil, Études thématiques]
       - {name: summary, label: Résumé (affiché dans la liste), widget: text, required: false}
       - {name: author, label: Auteur, widget: string, default: Hassan Ahmat Djamaladine}
       - {name: cover, label: Image de couverture, widget: image, required: false}

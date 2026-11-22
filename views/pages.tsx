@@ -1,7 +1,8 @@
+import {Suspense} from 'react';
 import {Award,Landmark,ScanSearch,Mic,Video,Users,CalendarDays} from 'lucide-react';
 import {Header,Footer,PageHero,Btn,Tag,Dots,ContactForm,ContactList} from '@/components/site';
 import {FounderPortrait,QuoteBlock,Timeline} from '@/components/home';
-import {ArticlesBrowser} from '@/components/articles';
+import {ArticlesBrowser,ArticleCard} from '@/components/articles';
 import {Reveal,Title} from '@/components/motion';
 import {founderName} from '@/lib/content';
 import {getArticles,toCard} from '@/lib/articles';
@@ -33,10 +34,10 @@ export function ContactView({lang}:{lang:Lang}){
   const t=dicts[lang];const p=t.contactPage;
   return <div id="top"><Header/><main id="main">
 <PageHero tag={p.tag} title={p.title} tone={p.tone} crumb={{href:'/',label:t.teamPage.crumb}} lead={<p>{p.lead}</p>}/>
-<section className="section container">
+<section id="consultation" className="section container">
   <div className="contact-wrap">
-    <Reveal className="contact-card"><Dots/><h2>{p.cardTitle}</h2><p>{p.cardText}</p><ContactList dark/></Reveal>
-    <Reveal delay={.1} className="form-card"><ContactForm/></Reveal>
+    <Reveal className="contact-card"><span id="coordonnees" className="anchor"/><Dots/><h2>{p.cardTitle}</h2><p>{p.cardText}</p><ContactList dark/></Reveal>
+    <Reveal delay={.1} className="form-card"><span id="formulaire" className="anchor"/><ContactForm/></Reveal>
   </div>
 </section>
 </main><Footer/></div>;
@@ -64,7 +65,7 @@ export function ArticlesView({lang}:{lang:Lang}){
   const t=dicts[lang];const p=t.articlesPage;const articles=getArticles().map(a=>toCard(a,lang));
   return <div id="top"><Header/><main id="main">
 <PageHero tag={p.tag} title={p.title} tone={p.tone} crumb={{href:'/',label:t.teamPage.crumb}} lead={<p>{p.lead}</p>}/>
-<section className="section container">{articles.length?<ArticlesBrowser articles={articles}/>:<div className="empty"><h2>{p.emptyTitle}</h2><p>{p.emptyText}</p></div>}</section>
+<section className="section container">{articles.length?<Suspense fallback={<ul className="list-grid">{articles.map(a=><li key={a.slug} className="art-wrap"><ArticleCard a={a}/></li>)}</ul>}><ArticlesBrowser articles={articles}/></Suspense>:<div className="empty"><h2>{p.emptyTitle}</h2><p>{p.emptyText}</p></div>}</section>
 </main><Footer/></div>;
 }
 

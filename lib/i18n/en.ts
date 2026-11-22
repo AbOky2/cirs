@@ -18,15 +18,19 @@ export const en:Dict={
   tagline:'A Canadian consulting firm based in Quebec, specializing in strategy and public affairs.',
   firm:'CIRS-Conseil Inc. is a Canadian consulting firm based in Quebec, specializing in strategy and public affairs.',
   nav:{
-    expertises:'Expertise & services',analyses:'Analyses & publications',cabinet:'The firm',
-    about:'About',aboutDesc:'The firm, its approach, its independence',
-    team:'Team',teamDesc:'The CEO’s background and certifications',
-    events:'Events',eventsDesc:'Conferences, webinars, round tables',
-    contactCta:'Contact us',contact:'Contact',home:'CIRS-Conseil Inc., home',
+    expertises:'Expertise',services:'Services',analyses:'Analyses & publications',about:'About',contact:'Contact',
+    cabinet:'The firm',method:'Our method',team:'Team & leadership',events:'Events',
+    cats:['Strategic analyses','Public policy notes','CIRS perspectives','Thematic studies'],
+    consult:'Consultation request',form:'Contact form',details:'Contact details',
+    submenu:'Submenu',home:'CIRS-Conseil Inc., home',
     open:'Open menu',close:'Close menu',main:'Main navigation',mobile:'Mobile navigation',
     skip:'Skip to content',language:'Language',
   },
   hero:{
+    title:['Anticipate.','Understand.','Decide.'],
+    lead2:'Strategic analysis and tailored advice for informed decisions in a complex international environment.',
+    consult:'Request a consultation',
+    cards:['Geopolitical analysis','Risk mapping','Strategic monitoring','Sector studies','Tailored advice'],
     tag:'Strategy and public affairs consulting',
     verbs:[
       {w:'Anticipate.',k:'Monitoring',c:'Spot the signals before they take hold.'},
@@ -44,7 +48,7 @@ export const en:Dict={
     {name:'Africa',countries:'French-speaking Africa · Sub-Saharan Africa',text:'Analysis of local issues and regional dynamics to inform your development.'},
     {name:'Asia',countries:'Southeast Asia · Vietnam',text:'Understanding the transformation of markets and value chains in Southeast Asia.'}],
   exp:{
-    tag:'Our expertise & services',title:'Five areas of expertise,',tone:'one standard of rigour.',
+    tag:'Our areas of expertise',title:'Five areas of expertise,',tone:'one standard of rigour.',
     text:'Our expertise draws in particular on experience in international strategic thinking, developed alongside the work of the Cercle international de réflexions stratégiques (CIRS), an independent non-profit think tank based in France.',
     listLabel:'Areas of expertise',cta:'Discuss this need',
     items:[
@@ -54,6 +58,17 @@ export const en:Dict={
       {title:'Strategic and crisis communication',text:'Deliver the right message, at the right time, to the right audiences, in normal times and in a crisis.'},
       {title:'Public policy evaluation',text:'Measure the scope and effects of public decisions to inform organizations’ choices.'}],
     ill:{impact:'Impact',prob:'Likelihood',goal:'Target'},
+  },
+  svc:{
+    tag:'Our services',title:'Five offerings to move',tone:'from analysis to action.',
+    text:'Each offering draws on several of our areas of expertise to support your organization’s decisions.',
+    cta:'Discuss this offering',
+    items:[
+      {title:'Public affairs',short:'Understand institutions. Engage with decision-makers.',description:'Decode the institutional environment and public policy to define your engagement strategy with public authorities.'},
+      {title:'Business advisory',short:'Inform your growth choices, at home and abroad.',description:'Support your expansion and market-entry projects with a reliable reading of countries, markets and competition.'},
+      {title:'Public relations',short:'Build trust with your audiences.',description:'Define your messages and public statements, in normal times and in a crisis.'},
+      {title:'Strategic environment',short:'Read your environment in all its dimensions.',description:'Analyse the economic, regulatory and international environment in which your organization operates to anticipate change.'},
+      {title:'Management consulting',short:'Turn analysis into decisions and action.',description:'Translate strategic information into concrete guidance for your leaders and teams.'}],
   },
   analyses:{
     tag:'Analyses & publications',title:'Our analyses,',tone:'expertise you can read.',
@@ -87,7 +102,7 @@ export const en:Dict={
     servicesLabel:'Services',cta:'Meet our CEO',
     imgAlt:'Globe with golden continents on a midnight-blue background',loc:'Quebec, Canada',
     floatTitle:'Independent firm',floatSub:'from the CIRS think tank',
-    figures:['areas of expertise','world regions','countries and areas of expertise','languages: French, English, Arabic'],
+    figures:['areas of expertise','consulting offerings','world regions','languages: French, English, Arabic'],
   },
   team:{
     tag:'Team',role:'CEO of CIRS-Conseil Inc.',
@@ -145,7 +160,7 @@ export const en:Dict={
     inviteTag:'Invitation',inviteTitle:'Invite CIRS-Conseil',inviteTone:'to speak.',inviteCta:'Propose an engagement'},
   articlesPage:{tag:'Analyses & publications',title:'Understanding today,',tone:'shedding light on tomorrow.',
     lead:'Analyses, strategic notes and monitoring of the dynamics shaping your environment. Our analyses are published in French.',
-    emptyTitle:'Our first analyses are coming soon.',emptyText:'CIRS-Conseil Inc.’s analyses will soon be available here.',
+    emptyCat:'No publications in this category yet.',emptyTitle:'Our first analyses are coming soon.',emptyText:'CIRS-Conseil Inc.’s analyses will soon be available here.',
     all:'All',filter:'Filter by category',read:'Read (in French)',min:'min',mark:'Analysis',
     readingTime:'min read',back:'All analyses',copy:'Copy link',copied:'Link copied'},
   eventsCard:{k:'Conferences & events',t:'Conferences, webinars, round tables and speaking engagements.',go:'Invite CIRS-Conseil'},

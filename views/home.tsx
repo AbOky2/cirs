@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import {MapPin,ShieldCheck,ArrowUpRight,CalendarDays} from 'lucide-react';
 import {Header,Footer,Btn,Tag,Dots,ContactList} from '@/components/site';
-import {Hero,Marquee,ExpertiseTabs,Method,FounderPortrait,QuoteBlock,Sectors,Faq,SectionHead} from '@/components/home';
+import {Hero} from '@/components/hero';
+import {Marquee,ExpertiseTabs,ServicesBento,Method,FounderPortrait,QuoteBlock,Sectors,Faq,SectionHead} from '@/components/home';
 import {Reveal,ScrollText,CountUp,Float,Title} from '@/components/motion';
 import {ArticleCard} from '@/components/articles';
 import {keyFigures,founderName,contact} from '@/lib/content';
@@ -24,13 +25,18 @@ export function HomeView({lang}:{lang:Lang}){
   </div>
 </section>
 
-<section id="articles" className="section container">
+<section id="services" className="section container">
+  <SectionHead tag={t.svc.tag} title={t.svc.title} tone={t.svc.tone} text={<p>{t.svc.text}</p>}/>
+  <ServicesBento/>
+</section>
+
+<section id="articles" className="panel panel-sky"><div className="container section">
   <SectionHead tag={t.analyses.tag} title={t.analyses.title} tone={t.analyses.tone} text={<><p>{t.analyses.text}{t.analyses.frNote&&<> <strong>{t.analyses.frNote}</strong></>}</p><div style={{marginTop:20}}><Btn href="/articles/" variant="light">{t.analyses.cta}</Btn></div></>}/>
   <div className="art-grid">
     {latest.map((a,n)=><Reveal key={a.slug} delay={n*.08} className={latest.length<3&&n===0?'art-wrap is-wide':'art-wrap'}><ArticleCard a={toCard(a,lang)}/></Reveal>)}
     {latest.length<3&&<Reveal delay={.12} className="art-wrap"><Link className="evt-card" href={L(lang,'/evenements/')}><Dots className="evt-dots"/><span className="evt-ico"><CalendarDays size={22} strokeWidth={1.6}/></span><span><span className="evt-k">{t.eventsCard.k}</span><span className="evt-t">{t.eventsCard.t}</span></span><span className="evt-go">{t.eventsCard.go} <ArrowUpRight size={16} className="flip-rtl"/></span></Link></Reveal>}
   </div>
-</section>
+</div></section>
 
 <section id="methode" className="panel panel-navy">
   <div className="container section">
@@ -55,7 +61,7 @@ export function HomeView({lang}:{lang:Lang}){
       <Tag>{t.about.tag}</Tag>
       <ScrollText className="about-statement" text={t.about.statement}/>
       <Reveal delay={.1}><p className="about-note">{t.about.note}</p></Reveal>
-      <Reveal delay={.15} className="about-services"><span className="mini">{t.about.servicesLabel}</span><ul className="chips">{t.exp.items.map(s=><li key={s.title}><a href="#expertises">{s.title}</a></li>)}</ul></Reveal>
+      <Reveal delay={.15} className="about-services"><span className="mini">{t.about.servicesLabel}</span><ul className="chips">{t.svc.items.map((s,k)=><li key={s.title}><a href={'#service-'+(k+1)}>{s.title}</a></li>)}</ul></Reveal>
       <Reveal delay={.2} className="about-cta"><Btn href="/equipe/">{t.about.cta}</Btn></Reveal>
     </div>
   </div>

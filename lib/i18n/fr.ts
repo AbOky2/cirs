@@ -18,15 +18,19 @@ export const fr={
   tagline:'Cabinet de conseil canado-québécois en stratégie et affaires publiques.',
   firm:'CIRS-Conseil Inc. est un cabinet de conseil canado-québécois en stratégie et affaires publiques.',
   nav:{
-    expertises:'Expertises & services',analyses:'Analyses & publications',cabinet:'Le cabinet',
-    about:'À propos',aboutDesc:'Le cabinet, son approche, son indépendance',
-    team:'Équipe',teamDesc:'Parcours et certifications du PDG',
-    events:'Événements',eventsDesc:'Conférences, webinaires, tables rondes',
-    contactCta:'Nous contacter',contact:'Contact',home:'CIRS-Conseil Inc., accueil',
+    expertises:'Expertises',services:'Services',analyses:'Analyses & publications',about:'À propos',contact:'Contact',
+    cabinet:'Le cabinet',method:'Notre méthode',team:'Équipe et direction',events:'Événements',
+    cats:['Analyses stratégiques','Notes de politiques publiques','Perspectives CIRS','Études thématiques'],
+    consult:'Demande de consultation',form:'Formulaire de contact',details:'Coordonnées',
+    submenu:'Sous-menu',home:'CIRS-Conseil Inc., accueil',
     open:'Ouvrir le menu',close:'Fermer le menu',main:'Navigation principale',mobile:'Navigation mobile',
     skip:'Aller au contenu',language:'Langue',
   },
   hero:{
+    title:['Anticiper.','Comprendre.','Décider.'],
+    lead2:'Des analyses stratégiques et des conseils sur mesure pour des décisions éclairées dans un environnement international complexe.',
+    consult:'Demander une consultation',
+    cards:['Analyses géopolitiques','Cartographies des risques','Veille stratégique','Études sectorielles','Conseil sur mesure'],
     tag:'Cabinet de conseil en stratégie et affaires publiques',
     verbs:[
       {w:'Anticiper.',k:'Veille',c:'Repérer les signaux avant qu’ils ne s’imposent.'},
@@ -44,7 +48,7 @@ export const fr={
     {name:'Afrique',countries:'Afrique francophone · Afrique subsaharienne',text:'L’analyse des enjeux locaux et des dynamiques régionales pour éclairer votre développement.'},
     {name:'Asie',countries:'Asie du Sud-Est · Vietnam',text:'Comprendre les transformations des marchés et des chaînes de valeur en Asie du Sud-Est.'}],
   exp:{
-    tag:'Nos expertises & services',title:'Cinq domaines d’expertise,',tone:'une même exigence.',
+    tag:'Nos domaines d’expertise',title:'Cinq domaines d’expertise,',tone:'une même exigence.',
     text:'Notre expertise s’inspire notamment d’une expérience développée dans le domaine de la réflexion stratégique internationale, parallèlement aux travaux menés au sein du Cercle international de réflexions stratégiques (CIRS), think tank indépendant à but non lucratif établi en France.',
     listLabel:'Domaines d’expertise',cta:'Parler de ce besoin',
     items:[
@@ -54,6 +58,17 @@ export const fr={
       {title:'Communication stratégique et de crise',text:'Porter le bon message, au bon moment, auprès des bons publics, en temps normal comme en situation de crise.'},
       {title:'Évaluation des politiques publiques',text:'Mesurer la portée et les effets des décisions publiques pour éclairer les choix des organisations.'}],
     ill:{impact:'Impact',prob:'Probabilité',goal:'Objectif'},
+  },
+  svc:{
+    tag:'Nos services',title:'Cinq offres pour passer',tone:'de l’analyse à l’action.',
+    text:'Chaque offre mobilise plusieurs de nos domaines d’expertise, au service des décisions de votre organisation.',
+    cta:'Parler de cette offre',
+    items:[
+      {title:'Affaires publiques',short:'Comprendre les institutions. Dialoguer avec les décideurs.',description:'Décrypter l’environnement institutionnel et les politiques publiques pour définir votre stratégie d’engagement auprès des pouvoirs publics.'},
+      {title:'Conseil en affaires',short:'Éclairer vos choix de développement, ici et à l’international.',description:'Accompagner vos projets d’expansion et d’implantation grâce à une lecture fiable des pays, des marchés et de la concurrence.'},
+      {title:'Relations publiques',short:'Construire la confiance avec vos publics.',description:'Définir vos messages et vos prises de parole, en temps normal comme en situation de crise.'},
+      {title:'Environnement stratégique',short:'Lire votre environnement dans toutes ses dimensions.',description:'Analyser l’environnement économique, réglementaire et international dans lequel évolue votre organisation pour anticiper ses transformations.'},
+      {title:'Conseil en management',short:'Transformer l’analyse en décisions et en action.',description:'Traduire l’information stratégique en orientations concrètes pour vos dirigeants et vos équipes.'}],
   },
   analyses:{
     tag:'Analyses & publications',title:'Nos analyses,',tone:'la preuve par l’expertise.',
@@ -87,7 +102,7 @@ export const fr={
     servicesLabel:'Services',cta:'Rencontrer notre PDG',
     imgAlt:'Globe aux continents dorés sur fond bleu nuit',loc:'Québec, Canada',
     floatTitle:'Cabinet indépendant',floatSub:'du think tank CIRS',
-    figures:['domaines d’expertise','régions du monde','pays et zones d’expertise','langues : français, anglais, arabe'],
+    figures:['domaines d’expertise','offres de conseil','régions du monde','langues : français, anglais, arabe'],
   },
   team:{
     tag:'Équipe',role:'PDG de CIRS-Conseil Inc.',
@@ -145,7 +160,7 @@ export const fr={
     inviteTag:'Invitation',inviteTitle:'Inviter CIRS-Conseil',inviteTone:'à intervenir.',inviteCta:'Proposer une intervention'},
   articlesPage:{tag:'Analyses & publications',title:'Comprendre aujourd’hui,',tone:'éclairer demain.',
     lead:'Analyses, notes stratégiques et veille sur les dynamiques qui façonnent votre environnement.',
-    emptyTitle:'Nos premières analyses sont à venir.',emptyText:'Retrouvez prochainement les analyses de CIRS-Conseil Inc. dans cet espace.',
+    emptyCat:'Aucune publication dans cette rubrique pour le moment.',emptyTitle:'Nos premières analyses sont à venir.',emptyText:'Retrouvez prochainement les analyses de CIRS-Conseil Inc. dans cet espace.',
     all:'Toutes',filter:'Filtrer par rubrique',read:'Lire l’analyse',min:'min',mark:'Analyse',
     readingTime:'min de lecture',back:'Toutes les analyses',copy:'Copier le lien',copied:'Lien copié'},
   eventsCard:{k:'Conférences & événements',t:'Conférences, webinaires, tables rondes et interventions.',go:'Inviter CIRS-Conseil'},

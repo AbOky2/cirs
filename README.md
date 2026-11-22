@@ -19,6 +19,10 @@ Site vitrine en français développé avec Next.js 16 App Router, React 19, Type
 - `lib/world.ts` et `public/world-dots.svg` : carte du monde en points, générés par `scripts/generate-world.mjs` (voir l’en-tête du script).
 - `public/` : logo (favicon), illustration du globe, portrait du PDG, espace de rédaction `/admin/`.
 
+## Navigation (maquette « Organisation recommandée du site »)
+
+Menus par ordre de priorité, chacun avec un sous-menu : Expertises (5 domaines, `/#expertise-1…5`), Services (5 offres, `/#service-1…5`), Analyses & publications (rubriques, `/articles/?rubrique=…`), À propos (le cabinet, notre méthode, équipe et direction, événements), Contact en bouton or (demande de consultation, formulaire, coordonnées : `/contact/#consultation`, `#formulaire`, `#coordonnees`). L’arborescence est définie dans `useMenus()` (`components/site.tsx`).
+
 ## Langues
 
 Le site existe en français (racine), en anglais (`/en/`) et en arabe (`/ar/`, mise en page de droite à gauche).

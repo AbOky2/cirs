@@ -1,34 +1,15 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {AnimatePresence,motion,useInView,useScroll,useTransform} from 'framer-motion';
-import {ArrowRight,Award,Building2,Check,Cpu,Factory,Gem,GraduationCap,Plus,Zap} from 'lucide-react';
+import Link from 'next/link';
+import {ArrowRight,ArrowUpRight,Award,BriefcaseBusiness,Building2,Cpu,Factory,Gem,GraduationCap,Landmark,Leaf,MessagesSquare,Plus,Settings,Zap} from 'lucide-react';
+import {svcUses} from '@/lib/content';
 import {useI18n} from '@/components/providers';
 import {expertiseIllustrations} from '@/components/illustrations';
 import {Btn,Dots,Tag} from '@/components/site';
-import {Float,Title,ease,seeded,useReducedMotionSafe} from '@/components/motion';
-import {FocusMotto,HorizonsCard,PixelDissolve} from '@/components/hero';
+import {Float,Stagger,Title,item,ease,seeded,useReducedMotionSafe} from '@/components/motion';
 
 const pad=(n:number)=>String(n).padStart(2,'0');
-
-/* ——— Hero ——— */
-export function Hero(){
-  const{t}=useI18n();const h=t.hero;
-  const fade=(d:number)=>({initial:{opacity:0,y:18},animate:{opacity:1,y:0},transition:{duration:.9,ease,delay:d}});
-  return <section className="hero">
-    <div className="hero-bg" aria-hidden="true"/>
-    <div className="container hero-grid">
-      <div className="hero-copy">
-        <motion.div {...fade(.05)}><Tag dark>{h.tag}</Tag></motion.div>
-        <FocusMotto/>
-        <motion.p className="hero-lead" {...fade(.7)}>{h.lead}</motion.p>
-        <motion.div className="hero-ctas" {...fade(.82)}><Btn href="/contact/" variant="gold">{h.cta}</Btn><Btn href="#expertises" variant="ghost">{h.cta2}</Btn></motion.div>
-        <motion.ul className="hero-proof" {...fade(.95)}>{h.proof.map(t=><li key={t}><Check size={14} strokeWidth={2.6}/>{t}</li>)}</motion.ul>
-      </div>
-      <HorizonsCard/>
-    </div>
-    <PixelDissolve/>
-  </section>;
-}
 
 /* ——— Bandeau des horizons ——— */
 export function Marquee(){
@@ -41,23 +22,44 @@ export function Marquee(){
 export function ExpertiseTabs(){
   const{t}=useI18n();const expertises=t.exp.items;
   const[i,setI]=useState(0);
+  // Sélection par ancre (#expertise-2) depuis le menu ou les raccourcis du hero.
+  useEffect(()=>{const read=()=>{const m=location.hash.match(/^#expertise-(\d)$/);if(m){const n=+m[1]!-1;if(n>=0&&n<expertises.length)setI(n)}};read();window.addEventListener('hashchange',read);return()=>window.removeEventListener('hashchange',read)},[expertises.length]);
   const Ill=expertiseIllustrations[i]!;const x=expertises[i]!;
-  const move=(d:number)=>{const n=(i+d+expertises.length)%expertises.length;setI(n);document.getElementById('xp-tab-'+n)?.focus()};
+  const move=(d:number)=>{const n=(i+d+expertises.length)%expertises.length;setI(n);document.getElementById('expertise-'+(n+1))?.focus()};
   return <div className="xp">
     <div className="xp-list" role="tablist" aria-orientation="vertical" aria-label={t.exp.listLabel}>
-      {expertises.map((e,n)=><button key={e.title} id={'xp-tab-'+n} role="tab" aria-selected={n===i} aria-controls="xp-panel" tabIndex={n===i?0:-1} className={n===i?'is-on':undefined} onClick={()=>setI(n)} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&n!==i)setI(n)}} onKeyDown={ev=>{if(ev.key==='ArrowDown'||ev.key==='ArrowRight'){ev.preventDefault();move(1)}if(ev.key==='ArrowUp'||ev.key==='ArrowLeft'){ev.preventDefault();move(-1)}}}>
+      {expertises.map((e,n)=><button key={e.title} id={'expertise-'+(n+1)} role="tab" aria-selected={n===i} aria-controls="xp-panel" tabIndex={n===i?0:-1} className={n===i?'is-on':undefined} onClick={()=>setI(n)} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&n!==i)setI(n)}} onKeyDown={ev=>{if(ev.key==='ArrowDown'||ev.key==='ArrowRight'){ev.preventDefault();move(1)}if(ev.key==='ArrowUp'||ev.key==='ArrowLeft'){ev.preventDefault();move(-1)}}}>
         {n===i&&<motion.span layoutId="xp-pill" className="xp-pill" transition={{type:'spring',stiffness:380,damping:34}}/>}
         <span className="xp-n">{pad(n+1)}</span><span className="xp-t">{e.title}</span><ArrowRight className="xp-a flip-rtl" size={18}/>
       </button>)}
     </div>
-    <div className="xp-panel" id="xp-panel" role="tabpanel" aria-labelledby={'xp-tab-'+i}>
+    <div className="xp-panel" id="xp-panel" role="tabpanel" aria-labelledby={'expertise-'+(i+1)}>
       <AnimatePresence mode="wait"><motion.div key={i} className="xp-in" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-12}} transition={{duration:.45,ease}}>
         <div className="xp-ill"><Ill labels={t.exp.ill}/></div>
         <div className="xp-body"><span className="xp-big" dir="ltr">{pad(i+1)}<small>/05</small></span><h3>{x.title}</h3><p>{x.text}</p>
-          <div className="xp-cta"><Btn href="/contact/" variant="light" size="sm">{t.exp.cta}</Btn></div></div>
+          <div className="xp-uses"><span>{t.svc.tag}</span><ul>{svcUses.flatMap((u,k)=>u.includes(i)?[k]:[]).map(k=><li key={k}><a href={'#service-'+(k+1)}>{t.svc.items[k]!.title}</a></li>)}</ul></div>
+          <div className="xp-cta"><Btn href="/contact/#consultation" variant="light" size="sm">{t.exp.cta}</Btn></div></div>
       </motion.div></AnimatePresence>
     </div>
   </div>;
+}
+
+/* ——— Services : cartes encochées, halo doré qui suit le survol ——— */
+const svcIcons=[Landmark,BriefcaseBusiness,MessagesSquare,Leaf,Settings];
+export function ServicesBento(){
+  const{t,l}=useI18n();const services=t.svc.items;
+  const[a,setA]=useState(0);
+  useEffect(()=>{const read=()=>{const m=location.hash.match(/^#service-(\d)$/);if(m){const n=+m[1]!-1;if(n>=0&&n<services.length)setA(n)}};read();window.addEventListener('hashchange',read);return()=>window.removeEventListener('hashchange',read)},[services.length]);
+  return <Stagger className="svc-grid" gap={.07}>
+    {services.map((s,n)=>{const Icon=svcIcons[n]??Landmark;const on=a===n;return <motion.article key={s.title} id={'service-'+(n+1)} variants={item} className={'svc svc-'+n+(on?' is-on':'')} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&!on)setA(n)}} onFocusCapture={()=>setA(n)}>
+      {on&&<motion.div layoutId="svc-spot" className="svc-spot" transition={{type:'spring',stiffness:300,damping:34}}/>}
+      {n===0&&<Dots className="svc-dots"/>}
+      <div className="svc-notch"><span className="svc-ico"><Icon size={24} strokeWidth={1.7}/></span></div>
+      <span className="svc-n" dir="ltr">{pad(n+1)}</span>
+      <div className="svc-body"><h3>{s.title}</h3><p className="svc-short">{s.short}</p><p className="svc-desc">{s.description}</p><ul className="svc-tags">{(svcUses[n]??[]).map(k=><li key={k}>{t.exp.items[k]!.title}</li>)}</ul></div>
+      <Link className="svc-go" href={l('/contact/#consultation')} aria-label={`${t.svc.cta} : ${s.title}`}><ArrowUpRight className="flip-rtl" size={20} strokeWidth={2}/></Link>
+    </motion.article>})}
+  </Stagger>;
 }
 
 /* ——— Méthode : du bruit à la décision ——— */

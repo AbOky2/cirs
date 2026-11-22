@@ -3,8 +3,8 @@ import Link from 'next/link';
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import {AnimatePresence,motion,useScroll,useTransform} from 'framer-motion';
-import {ArrowUpRight,ChevronDown,Mail,Phone,MessageCircle,MapPin,Check} from 'lucide-react';
-import {contact} from '@/lib/content';
+import {ArrowUpRight,ChevronDown,Mail,Phone,MessageCircle,MapPin,Check,ChartColumn,Globe2,ShieldCheck,Megaphone,Layers,Landmark,BriefcaseBusiness,MessagesSquare,Leaf,Settings,FileText,ScrollText,Binoculars,BookOpen,Building2,Target,Users,CalendarDays,MessageSquareText,ClipboardList,type LucideIcon} from 'lucide-react';
+import {contact,articleCats} from '@/lib/content';
 import {useI18n} from '@/components/providers';
 import {fill,langs,splitPath,L,dicts} from '@/lib/i18n';
 import {Title,ease} from '@/components/motion';
@@ -38,8 +38,6 @@ export function Dots({className}:{className?:string}){return <div className={'do
 /* ——— En-tête : îlot flottant ———
    Ordre stratégique : ce que fait le cabinet (Expertises, Services), la preuve de son expertise
    (Analyses & publications), puis l’institutionnel regroupé dans le sous-menu « Le cabinet ». */
-type NavItem={href:string;label:string;id:string;desc?:string};
-const CAB='#cabinet';
 
 /** Sélecteur de langue : renvoie vers la même page dans l’autre langue (les analyses détaillées n’existent qu’en français). */
 export function LangSwitch({className}:{className?:string}){
@@ -49,50 +47,65 @@ export function LangSwitch({className}:{className?:string}){
   return <div className={'lang'+(className?' '+className:'')} role="group" aria-label={t.nav.language}>{langs.map(x=><a key={x} href={target(x)} hrefLang={dicts[x].htmlLang} lang={dicts[x].htmlLang} aria-current={x===lang?'true':undefined} className={x===lang?'is-on':undefined} title={dicts[x].langName}>{x==='ar'?'ع':x.toUpperCase()}</a>)}</div>;
 }
 
+type Sub={href:string;label:string;icon:LucideIcon};
+type Menu={key:string;href:string;label:string;subs:Sub[];match:(path:string,section:string)=>boolean;cta?:boolean};
+const expIcons=[ChartColumn,Globe2,ShieldCheck,Megaphone,Layers];
+const svcIcons=[Landmark,BriefcaseBusiness,MessagesSquare,Leaf,Settings];
+const catIcons=[FileText,ScrollText,Binoculars,BookOpen];
+
+/** Arborescence du site (maquette « Organisation recommandée ») : menus par ordre de priorité. */
+export function useMenus():Menu[]{
+  const{t}=useI18n();const n=t.nav;
+  return [
+    {key:'exp',href:'/#expertises',label:n.expertises,match:(p,s)=>p==='/'&&s==='expertises',subs:t.exp.items.map((x,i)=>({href:`/#expertise-${i+1}`,label:x.title,icon:expIcons[i]??Layers}))},
+    {key:'svc',href:'/#services',label:n.services,match:(p,s)=>p==='/'&&s==='services',subs:t.svc.items.map((x,i)=>({href:`/#service-${i+1}`,label:x.title,icon:svcIcons[i]??Settings}))},
+    {key:'ana',href:'/articles/',label:n.analyses,match:(p,s)=>p.startsWith('/articles/')||(p==='/'&&s==='articles'),subs:n.cats.map((c,i)=>({href:`/articles/?rubrique=${encodeURIComponent(articleCats[i]??'')}`,label:c,icon:catIcons[i]??FileText}))},
+    {key:'about',href:'/#apropos',label:n.about,match:(p,s)=>p.startsWith('/equipe/')||p.startsWith('/evenements/')||(p==='/'&&['methode','secteurs','apropos','equipe','faq'].includes(s)),subs:[
+      {href:'/#apropos',label:n.cabinet,icon:Building2},{href:'/#methode',label:n.method,icon:Target},{href:'/equipe/',label:n.team,icon:Users},{href:'/evenements/',label:n.events,icon:CalendarDays}]},
+    {key:'contact',href:'/contact/',label:n.contact,cta:true,match:p=>p.startsWith('/contact/'),subs:[
+      {href:'/contact/#consultation',label:n.consult,icon:MessageSquareText},{href:'/contact/#formulaire',label:n.form,icon:ClipboardList},{href:'/contact/#coordonnees',label:n.details,icon:MapPin}]},
+  ];
+}
+/** Les liens à ancre ne déclenchent pas « hashchange » avec le routeur : on le signale aux composants qui en dépendent. */
+const hashPing=()=>setTimeout(()=>window.dispatchEvent(new HashChangeEvent('hashchange')),60);
+
 export function Header(){
   const pathname=usePathname();const{t,l}=useI18n();
   const[,path]=splitPath(pathname);
-  const nav:NavItem[]=[{href:'/#expertises',label:t.nav.expertises,id:'expertises'},{href:'/articles/',label:t.nav.analyses,id:'articles'}];
-  const cabinet:NavItem[]=[{href:'/#apropos',label:t.nav.about,id:'apropos',desc:t.nav.aboutDesc},{href:'/equipe/',label:t.nav.team,id:'',desc:t.nav.teamDesc},{href:'/evenements/',label:t.nav.events,id:'',desc:t.nav.eventsDesc}];
+  const menus=useMenus();
   const[open,setOpen]=useState(false);const[hidden,setHidden]=useState(false);const[scrolled,setScrolled]=useState(false);
-  const[hover,setHover]=useState<string|null>(null);const[section,setSection]=useState('');const[sub,setSub]=useState(false);
-  const subRef=useRef<HTMLDivElement>(null);
+  const[section,setSection]=useState('');const[sub,setSub]=useState<string|null>(null);
+  const navRef=useRef<HTMLElement>(null);
   useEffect(()=>{let last=window.scrollY;const on=()=>{const y=window.scrollY;setScrolled(y>24);setHidden(y>last&&y>420);if(y<window.innerHeight*.5)setSection('');last=y};on();window.addEventListener('scroll',on,{passive:true});return()=>window.removeEventListener('scroll',on)},[]);
   useEffect(()=>{if(path!=='/')return;const els=[...document.querySelectorAll<HTMLElement>('main > section[id]')];const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting)setSection(e.target.id)},{rootMargin:'-40% 0px -55% 0px'});els.forEach(el=>io.observe(el));return()=>io.disconnect()},[path]);
   useEffect(()=>{document.documentElement.classList.toggle('menu-lock',open);return()=>document.documentElement.classList.remove('menu-lock')},[open]);
-  useEffect(()=>{setOpen(false);setSub(false)},[pathname]);
-  useEffect(()=>{if(hidden)setSub(false)},[hidden]);
+  useEffect(()=>{setOpen(false);setSub(null)},[pathname]);
+  useEffect(()=>{if(hidden)setSub(null)},[hidden]);
   // Fermeture du sous-menu : Échap, clic ou focus en dehors.
-  useEffect(()=>{if(!sub)return;const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setSub(false);subRef.current?.querySelector('button')?.focus()}};const out=(e:Event)=>{if(!subRef.current?.contains(e.target as Node))setSub(false)};document.addEventListener('keydown',key);document.addEventListener('pointerdown',out);document.addEventListener('focusin',out);return()=>{document.removeEventListener('keydown',key);document.removeEventListener('pointerdown',out);document.removeEventListener('focusin',out)}},[sub]);
-  const isActive=(n:NavItem)=>(!!n.id&&path==='/'&&section===n.id)||(!n.href.startsWith('/#')&&path.startsWith(n.href));
-  const cabActive=cabinet.some(isActive);
-  const pill=hover??(nav.find(isActive)?.href??(cabActive?CAB:null));
-  const pillFor=(k:string)=>pill===k?<motion.span layoutId="nav-pill" className="nav-pill" transition={{type:'spring',stiffness:420,damping:34}}/>:null;
+  useEffect(()=>{if(!sub)return;const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){const k=sub;setSub(null);navRef.current?.querySelector<HTMLElement>(`[data-menu="${k}"] .nav-chev-btn`)?.focus()}};const out=(e:Event)=>{if(!navRef.current?.querySelector(`[data-menu="${sub}"]`)?.contains(e.target as Node))setSub(null)};document.addEventListener('keydown',key);document.addEventListener('pointerdown',out);document.addEventListener('focusin',out);return()=>{document.removeEventListener('keydown',key);document.removeEventListener('pointerdown',out);document.removeEventListener('focusin',out)}},[sub]);
+  const go=(href:string)=>{setSub(null);setOpen(false);if(href.includes('#'))hashPing()};
   return <header className={'hdr'+(hidden&&!open?' is-hidden':'')+(scrolled?' is-scrolled':'')+(open?' is-open':'')}>
     <div className="island">
-      <Logo/>
-      <nav className="island-nav" aria-label={t.nav.main} onMouseLeave={()=>setHover(null)}>
-        {nav.map(n=><Link key={n.href} href={l(n.href)} onMouseEnter={()=>setHover(n.href)} onFocus={()=>setHover(n.href)} onBlur={()=>setHover(null)} aria-current={isActive(n)?'page':undefined} className={isActive(n)?'is-active':undefined}>
-          {pillFor(n.href)}<span className="nav-label">{n.label}</span>
-        </Link>)}
-        <div className="nav-sub" ref={subRef} onMouseEnter={()=>{setHover(CAB);setSub(true)}} onMouseLeave={()=>setSub(false)}>
-          <button type="button" className={cabActive?'nav-sub-btn is-active':'nav-sub-btn'} aria-expanded={sub} aria-controls="nav-cabinet" onClick={()=>setSub(v=>!v)} onFocus={()=>setHover(CAB)} onBlur={()=>setHover(null)}>
-            {pillFor(CAB)}<span className="nav-label">{t.nav.cabinet}<ChevronDown size={15} strokeWidth={2.2} className="nav-chev"/></span>
-          </button>
-          <AnimatePresence>{sub&&<motion.div id="nav-cabinet" className="nav-drop" initial={{opacity:0,y:8,scale:.98}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:6,scale:.98}} transition={{duration:.22,ease}}>
-            {cabinet.map(n=><Link key={n.href} href={l(n.href)} onClick={()=>setSub(false)} aria-current={isActive(n)?'page':undefined} className={isActive(n)?'is-active':undefined}><strong>{n.label}</strong><small>{n.desc}</small></Link>)}
+      <Logo light/>
+      <nav ref={navRef} className="island-nav" aria-label={t.nav.main}>
+        {menus.map(m=>{const on=m.match(path,section);const isOpen=sub===m.key;return <div key={m.key} data-menu={m.key} className={'nav-item'+(m.cta?' nav-item-cta':'')+(on?' is-active':'')} onMouseEnter={()=>setSub(m.key)} onMouseLeave={()=>setSub(v=>v===m.key?null:v)}>
+          <Link href={l(m.href)} className="nav-top" aria-current={on?'page':undefined} onClick={()=>go(m.href)}>{m.cta&&<Mail size={16} strokeWidth={2}/>}<span>{m.label}</span></Link>
+          <button type="button" className="nav-chev-btn" aria-expanded={isOpen} aria-controls={'nav-'+m.key} aria-label={`${t.nav.submenu} : ${m.label}`} onClick={()=>setSub(isOpen?null:m.key)}><ChevronDown size={15} strokeWidth={2.4} className="nav-chev"/></button>
+          <AnimatePresence>{isOpen&&<motion.div id={'nav-'+m.key} className="nav-drop" initial={{opacity:0,y:8,scale:.98}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:6,scale:.98}} transition={{duration:.2,ease}}>
+            {m.subs.map(x=>{const Icon=x.icon;return <Link key={x.href} href={l(x.href)} onClick={()=>go(x.href)}><span className="nav-drop-ico"><Icon size={17} strokeWidth={1.8}/></span><span>{x.label}</span></Link>})}
           </motion.div>}</AnimatePresence>
-        </div>
+        </div>})}
       </nav>
-      <LangSwitch className="island-lang"/>
-      <Btn href="/contact/" size="sm" className="island-cta">{t.nav.contactCta}</Btn>
+      <LangSwitch className="island-lang lang-dark"/>
       <button className="island-toggle" aria-label={open?t.nav.close:t.nav.open} aria-expanded={open} aria-controls="menu-mobile" onClick={()=>setOpen(!open)}><span/><span/></button>
     </div>
     <AnimatePresence>{open&&<motion.div id="menu-mobile" className="mnav" initial={{clipPath:'inset(0 0 100% 0 round 0 0 28px 28px)'}} animate={{clipPath:'inset(0 0 0% 0 round 0 0 0px 0px)'}} exit={{clipPath:'inset(0 0 100% 0 round 0 0 28px 28px)'}} transition={{duration:.6,ease}}>
       <Dots className="mnav-dots"/>
       <nav className="mnav-links" aria-label={t.nav.mobile}>
-        {[...nav,{href:'/contact/',label:t.nav.contact,id:''}].map((n,i)=><motion.div key={n.href} initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.6,ease,delay:.15+i*.05}}><Link href={l(n.href)} onClick={()=>setOpen(false)}><span className="mnav-i">{String(i+1).padStart(2,'0')}</span>{n.label}</Link></motion.div>)}
-        <motion.div className="mnav-sub" initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.6,ease,delay:.35}}><span className="mnav-sub-t">{t.nav.cabinet}</span>{cabinet.map(n=><Link key={n.href} href={l(n.href)} onClick={()=>setOpen(false)}>{n.label}</Link>)}</motion.div>
+        {menus.map((m,i)=><motion.div key={m.key} className="mnav-group" initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.6,ease,delay:.12+i*.05}}>
+          <Link href={l(m.href)} className="mnav-top" onClick={()=>go(m.href)}><span className="mnav-i" dir="ltr">{String(i+1).padStart(2,'0')}</span>{m.label}</Link>
+          <div className="mnav-subs">{m.subs.map(x=><Link key={x.href} href={l(x.href)} onClick={()=>go(x.href)}>{x.label}</Link>)}</div>
+        </motion.div>)}
       </nav>
       <motion.div className="mnav-foot" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.5}}><LangSwitch className="lang-dark"/><a href={'mailto:'+contact.email}>{contact.email}</a><a href={contact.phoneHref} dir="ltr">{contact.phone}</a></motion.div>
     </motion.div>}</AnimatePresence>
@@ -128,7 +141,7 @@ export function Footer(){
     <div className="container ftr-top">
       <div className="ftr-brand"><Logo light/><p className="ftr-motto">{t.motto}</p><p>{t.tagline}</p></div>
       <div className="ftr-col"><span className="ftr-title">{t.footer.contact}</span><a href={'mailto:'+contact.email}>{contact.email}</a><a href={contact.phoneHref} dir="ltr">{contact.phone}</a><a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp <span dir="ltr">{contact.whatsapp}</span></a><span>{t.contact.locShort}</span></div>
-      <div className="ftr-col"><span className="ftr-title">{t.footer.explore}</span><Link href={l('/#expertises')}>{t.nav.expertises}</Link><Link href={l('/articles/')}>{t.nav.analyses}</Link><Link href={l('/#apropos')}>{t.nav.about}</Link><Link href={l('/equipe/')}>{t.nav.team}</Link><Link href={l('/evenements/')}>{t.nav.events}</Link><Link href={l('/contact/')}>{t.nav.contact}</Link></div>
+      <div className="ftr-col"><span className="ftr-title">{t.footer.explore}</span><Link href={l('/#expertises')}>{t.nav.expertises}</Link><Link href={l('/#services')}>{t.nav.services}</Link><Link href={l('/articles/')}>{t.nav.analyses}</Link><Link href={l('/#apropos')}>{t.nav.about}</Link><Link href={l('/equipe/')}>{t.nav.team}</Link><Link href={l('/evenements/')}>{t.nav.events}</Link><Link href={l('/contact/')}>{t.nav.contact}</Link></div>
       <div className="ftr-col ftr-privacy" id="confidentialite"><span className="ftr-title">{t.footer.privacyTitle}</span><p>{t.footer.privacy}</p><LangSwitch className="lang-dark ftr-lang"/></div>
     </div>
     <div className="container ftr-bottom"><span suppressHydrationWarning dir="ltr">© {new Date().getFullYear()} CIRS-Conseil Inc.</span><a href="#top">{t.footer.top}</a></div>
