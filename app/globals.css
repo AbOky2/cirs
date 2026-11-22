@@ -108,6 +108,23 @@ h1,h2,h3{font-weight:500}
 .island-nav a:hover,.island-nav a.is-active{color:var(--ink)}
 .island-nav a.is-active:after{content:'';position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:1px;background:var(--gold)}
 .nav-pill{position:absolute;inset:0;border-radius:12px;background:var(--surface-2)}
+.nav-sub{position:relative}
+.nav-sub-btn{position:relative;padding:10px 15px;border-radius:12px;font-size:14.5px;font-weight:500;color:var(--text);transition:color .25s}
+.nav-sub-btn:hover,.nav-sub-btn.is-active,.nav-sub-btn[aria-expanded=true]{color:var(--ink)}
+.nav-sub-btn .nav-label{display:inline-flex;align-items:center;gap:5px}
+.nav-chev{transition:transform .35s var(--ease)}
+.nav-sub-btn[aria-expanded=true] .nav-chev{transform:rotate(180deg)}
+.nav-sub-btn.is-active:after{content:'';position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:1px;background:var(--gold)}
+.nav-drop{position:absolute;top:calc(100% + 12px);left:50%;width:300px;margin-left:-150px;padding:8px;border-radius:20px;background:#fff;box-shadow:0 1px 0 rgba(8,20,48,.04),0 26px 60px -20px rgba(5,12,32,.45);transform-origin:top center}
+.nav-drop:before{content:'';position:absolute;left:0;right:0;top:-14px;height:14px}
+.island-nav .nav-drop a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:14px;transition:background .2s}
+.island-nav .nav-drop a:hover,.island-nav .nav-drop a:focus-visible{background:var(--surface)}
+.island-nav .nav-drop a.is-active:after{display:none}
+.nav-drop strong{font-family:var(--display);font-size:15.5px;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.nav-drop small{font-size:13px;color:var(--muted)}
+.mnav-sub{display:flex;flex-direction:column;gap:2px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.mnav-sub-t{font-size:13px;color:var(--gold);margin-bottom:4px}
+.mnav-links .mnav-sub a{font-size:clamp(22px,5.6vw,30px);color:rgba(255,255,255,.78);padding:3px 0}
 .nav-label{position:relative}
 .island-toggle{display:none;position:relative;width:46px;height:46px;border-radius:14px;background:var(--navy-900);margin-left:auto}
 .island-toggle span{position:absolute;left:14px;right:14px;height:1.7px;border-radius:2px;background:#fff;transition:transform .5s var(--ease),top .5s var(--ease)}
@@ -549,7 +566,7 @@ h1,h2,h3{font-weight:500}
 
 /* ——— Responsive ——— */
 @media (max-width:1200px){
-  .island-nav a{padding:10px 11px;font-size:14px}
+  .island-nav a,.nav-sub-btn{padding:10px 11px;font-size:14px}
   .ftr-top{grid-template-columns:1fr 1fr;gap:40px 32px}
 }
 @media (max-width:1060px){

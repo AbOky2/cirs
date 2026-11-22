@@ -15,6 +15,45 @@ export default function Home(){
 <Hero/>
 <Marquee items={places}/>
 
+{/* ——— Domaines d’expertise ——— */}
+<section id="expertises" className="panel panel-sky">
+  <div className="container section">
+    <SectionHead tag="Nos domaines d’expertise" title="Cinq domaines d’expertise," tone="une même exigence." text={<p>Notre expertise s’inspire notamment d’une expérience développée dans le domaine de la réflexion stratégique internationale, parallèlement aux travaux menés au sein du Cercle international de réflexions stratégiques (CIRS), think tank indépendant à but non lucratif établi en France.</p>}/>
+    <ExpertiseTabs/>
+  </div>
+</section>
+
+{/* ——— Services ——— */}
+<section id="services" className="section container">
+  <SectionHead tag="Nos services" title="Cinq offres pour passer" tone="de l’analyse à l’action." text={<p>Chaque offre mobilise plusieurs de nos domaines d’expertise, au service des décisions de votre organisation.</p>}/>
+  <ServicesBento/>
+</section>
+
+{/* ——— Analyses & publications : la preuve de l’expertise ——— */}
+<section id="articles" className="panel panel-sky">
+  <div className="container section">
+    <SectionHead tag="Analyses & publications" title="Nos analyses," tone="la preuve par l’expertise." text={<><p>Notes stratégiques, analyses géopolitiques et veille : nos publications donnent à lire concrètement notre manière de décrypter les enjeux.</p><div style={{marginTop:20}}><Btn href="/articles/" variant="light">Toutes les analyses</Btn></div></>}/>
+    <div className="art-grid">
+      {latest.map((a,n)=><Reveal key={a.slug} delay={n*.08} className={latest.length<3&&n===0?'art-wrap is-wide':'art-wrap'}><ArticleCard a={toCard(a)}/></Reveal>)}
+      {latest.length<3&&<Reveal delay={.12} className="art-wrap"><Link className="evt-card" href="/evenements/"><Dots className="evt-dots"/><span className="evt-ico"><CalendarDays size={22} strokeWidth={1.6}/></span><span><span className="evt-k">Conférences & événements</span><span className="evt-t">Conférences, webinaires, tables rondes et interventions.</span></span><span className="evt-go">Inviter CIRS-Conseil <ArrowUpRight size={16}/></span></Link></Reveal>}
+    </div>
+  </div>
+</section>
+
+{/* ——— Méthode ——— */}
+<section id="methode" className="panel panel-navy">
+  <div className="container section">
+    <SectionHead dark tag="Notre méthode" title="Du bruit" tone="à la décision." text={<p>Une démarche structurée pour rendre l’environnement international lisible et vos choix mieux informés.</p>}/>
+    <Method/>
+  </div>
+</section>
+
+{/* ——— Secteurs ——— */}
+<section id="secteurs" className="section container">
+  <SectionHead tag="Secteurs d’intervention" title="Vos réalités," tone="notre point de départ." text={<p>Chaque secteur a ses dynamiques. Notre analyse en tient compte.</p>}/>
+  <Reveal><Sectors/></Reveal>
+</section>
+
 {/* ——— À propos ——— */}
 <section id="apropos" className="section container">
   <div className="about">
@@ -34,30 +73,8 @@ export default function Home(){
   <dl className="stats">{keyFigures.map(f=><div key={f.label} className="stat"><dt>{f.label}</dt><dd><CountUp value={f.value} pad={f.pad} suffix={f.suffix}/></dd></div>)}</dl>
 </section>
 
-{/* ——— Domaines d’expertise ——— */}
-<section id="expertises" className="panel panel-sky">
-  <div className="container section">
-    <SectionHead tag="Nos domaines d’expertise" title="Cinq domaines d’expertise," tone="une même exigence." text={<p>Notre expertise s’inspire notamment d’une expérience développée dans le domaine de la réflexion stratégique internationale, parallèlement aux travaux menés au sein du Cercle international de réflexions stratégiques (CIRS), think tank indépendant à but non lucratif établi en France.</p>}/>
-    <ExpertiseTabs/>
-  </div>
-</section>
-
-{/* ——— Services ——— */}
-<section id="services" className="section container">
-  <SectionHead tag="Nos services" title="Cinq offres pour passer" tone="de l’analyse à l’action." text={<p>Chaque offre mobilise plusieurs de nos domaines d’expertise, au service des décisions de votre organisation.</p>}/>
-  <ServicesBento/>
-</section>
-
-{/* ——— Méthode ——— */}
-<section id="methode" className="panel panel-navy">
-  <div className="container section">
-    <SectionHead dark tag="Notre méthode" title="Du bruit" tone="à la décision." text={<p>Une démarche structurée pour rendre l’environnement international lisible et vos choix mieux informés.</p>}/>
-    <Method/>
-  </div>
-</section>
-
 {/* ——— Équipe ——— */}
-<section id="equipe" className="section container">
+<section id="equipe" className="section container section-tight">
   <div className="team-sec">
     <Reveal><FounderPortrait/></Reveal>
     <div className="team-copy">
@@ -66,23 +83,6 @@ export default function Home(){
       <Reveal delay={.1}><p className="team-lead">Certifié en intelligence économique, en évaluation des politiques publiques et en métiers du pouvoir, formé en administration publique entre l’IEP de Fontainebleau et l’ENAP.</p></Reveal>
       <Reveal delay={.15}><QuoteBlock/></Reveal>
       <Reveal delay={.2} className="team-cta"><Btn href="/equipe/">Découvrir son parcours</Btn></Reveal>
-    </div>
-  </div>
-</section>
-
-{/* ——— Secteurs ——— */}
-<section id="secteurs" className="section container section-tight">
-  <SectionHead tag="Secteurs d’intervention" title="Vos réalités," tone="notre point de départ." text={<p>Chaque secteur a ses dynamiques. Notre analyse en tient compte.</p>}/>
-  <Reveal><Sectors/></Reveal>
-</section>
-
-{/* ——— Articles ——— */}
-<section id="articles" className="panel panel-sky">
-  <div className="container section">
-    <SectionHead tag="Articles & analyses" title="Des perspectives" tone="pour mieux comprendre." text={<Btn href="/articles/" variant="light">Tous les articles</Btn>}/>
-    <div className="art-grid">
-      {latest.map((a,n)=><Reveal key={a.slug} delay={n*.08} className={latest.length<3&&n===0?'art-wrap is-wide':'art-wrap'}><ArticleCard a={toCard(a)}/></Reveal>)}
-      {latest.length<3&&<Reveal delay={.12} className="art-wrap"><Link className="evt-card" href="/evenements/"><Dots className="evt-dots"/><span className="evt-ico"><CalendarDays size={22} strokeWidth={1.6}/></span><span><span className="evt-k">Conférences & événements</span><span className="evt-t">Conférences, webinaires, tables rondes et interventions.</span></span><span className="evt-go">Inviter CIRS-Conseil <ArrowUpRight size={16}/></span></Link></Reveal>}
     </div>
   </div>
 </section>

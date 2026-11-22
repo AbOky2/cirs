@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import {AnimatePresence,motion,useScroll,useTransform} from 'framer-motion';
-import {ArrowUpRight,Mail,Phone,MessageCircle,MapPin,Check} from 'lucide-react';
+import {ArrowUpRight,ChevronDown,Mail,Phone,MessageCircle,MapPin,Check} from 'lucide-react';
 import {contact,motto,privacy,services} from '@/lib/content';
 import {Title,ease} from '@/components/motion';
 
@@ -32,27 +32,45 @@ export function Tag({children,dark=false}:{children:React.ReactNode;dark?:boolea
 /** Carte du monde en points (masque CSS sur /world-dots.svg) — couleur pilotée par la classe. */
 export function Dots({className}:{className?:string}){return <div className={'dots'+(className?' '+className:'')} aria-hidden="true"/>}
 
-/* ——— En-tête : îlot flottant ——— */
-const nav=[{href:'/#apropos',label:'À propos',id:'apropos'},{href:'/#expertises',label:'Expertises',id:'expertises'},{href:'/#services',label:'Services',id:'services'},{href:'/equipe/',label:'Équipe',id:''},{href:'/articles/',label:'Articles',id:''},{href:'/evenements/',label:'Événements',id:''}];
+/* ——— En-tête : îlot flottant ———
+   Ordre stratégique : ce que fait le cabinet (Expertises, Services), la preuve de son expertise
+   (Analyses & publications), puis l’institutionnel regroupé dans le sous-menu « Le cabinet ». */
+type NavItem={href:string;label:string;id:string;desc?:string};
+const nav:NavItem[]=[{href:'/#expertises',label:'Expertises',id:'expertises'},{href:'/#services',label:'Services',id:'services'},{href:'/articles/',label:'Analyses & publications',id:'articles'}];
+const cabinet:NavItem[]=[{href:'/#apropos',label:'À propos',id:'apropos',desc:'Le cabinet, son approche, son indépendance'},{href:'/equipe/',label:'Équipe',id:'',desc:'Parcours et certifications du PDG'},{href:'/evenements/',label:'Événements',id:'',desc:'Conférences, webinaires, tables rondes'}];
+const CAB='#cabinet';
 
 export function Header(){
   const pathname=usePathname();
   const[open,setOpen]=useState(false);const[hidden,setHidden]=useState(false);const[scrolled,setScrolled]=useState(false);
-  const[hover,setHover]=useState<string|null>(null);const[section,setSection]=useState('');
+  const[hover,setHover]=useState<string|null>(null);const[section,setSection]=useState('');const[sub,setSub]=useState(false);
+  const subRef=useRef<HTMLDivElement>(null);
   useEffect(()=>{let last=window.scrollY;const on=()=>{const y=window.scrollY;setScrolled(y>24);setHidden(y>last&&y>420);if(y<window.innerHeight*.5)setSection('');last=y};on();window.addEventListener('scroll',on,{passive:true});return()=>window.removeEventListener('scroll',on)},[]);
-  useEffect(()=>{if(pathname!=='/')return;const els=nav.flatMap(n=>{const el=n.id?document.getElementById(n.id):null;return el?[el]:[]});const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting)setSection(e.target.id)},{rootMargin:'-40% 0px -55% 0px'});els.forEach(el=>io.observe(el));return()=>io.disconnect()},[pathname]);
+  useEffect(()=>{if(pathname!=='/')return;const els=[...document.querySelectorAll<HTMLElement>('main > section[id]')];const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting)setSection(e.target.id)},{rootMargin:'-40% 0px -55% 0px'});els.forEach(el=>io.observe(el));return()=>io.disconnect()},[pathname]);
   useEffect(()=>{document.documentElement.classList.toggle('menu-lock',open);return()=>document.documentElement.classList.remove('menu-lock')},[open]);
-  useEffect(()=>{setOpen(false)},[pathname]);
-  const isActive=(n:typeof nav[number])=>n.id?pathname==='/'&&section===n.id:pathname.startsWith(n.href);
-  const pill=hover??nav.find(isActive)?.href??null;
+  useEffect(()=>{setOpen(false);setSub(false)},[pathname]);
+  useEffect(()=>{if(hidden)setSub(false)},[hidden]);
+  // Fermeture du sous-menu : Échap, clic ou focus en dehors.
+  useEffect(()=>{if(!sub)return;const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setSub(false);subRef.current?.querySelector('button')?.focus()}};const out=(e:Event)=>{if(!subRef.current?.contains(e.target as Node))setSub(false)};document.addEventListener('keydown',key);document.addEventListener('pointerdown',out);document.addEventListener('focusin',out);return()=>{document.removeEventListener('keydown',key);document.removeEventListener('pointerdown',out);document.removeEventListener('focusin',out)}},[sub]);
+  const isActive=(n:NavItem)=>(!!n.id&&pathname==='/'&&section===n.id)||(!n.href.startsWith('/#')&&pathname.startsWith(n.href));
+  const cabActive=cabinet.some(isActive);
+  const pill=hover??(nav.find(isActive)?.href??(cabActive?CAB:null));
+  const pillFor=(k:string)=>pill===k?<motion.span layoutId="nav-pill" className="nav-pill" transition={{type:'spring',stiffness:420,damping:34}}/>:null;
   return <header className={'hdr'+(hidden&&!open?' is-hidden':'')+(scrolled?' is-scrolled':'')+(open?' is-open':'')}>
     <div className="island">
       <Logo/>
       <nav className="island-nav" aria-label="Navigation principale" onMouseLeave={()=>setHover(null)}>
         {nav.map(n=><Link key={n.href} href={n.href} onMouseEnter={()=>setHover(n.href)} onFocus={()=>setHover(n.href)} onBlur={()=>setHover(null)} aria-current={isActive(n)?'page':undefined} className={isActive(n)?'is-active':undefined}>
-          {pill===n.href&&<motion.span layoutId="nav-pill" className="nav-pill" transition={{type:'spring',stiffness:420,damping:34}}/>}
-          <span className="nav-label">{n.label}</span>
+          {pillFor(n.href)}<span className="nav-label">{n.label}</span>
         </Link>)}
+        <div className="nav-sub" ref={subRef} onMouseEnter={()=>{setHover(CAB);setSub(true)}} onMouseLeave={()=>setSub(false)}>
+          <button type="button" className={cabActive?'nav-sub-btn is-active':'nav-sub-btn'} aria-expanded={sub} aria-controls="nav-cabinet" onClick={()=>setSub(v=>!v)} onFocus={()=>setHover(CAB)} onBlur={()=>setHover(null)}>
+            {pillFor(CAB)}<span className="nav-label">Le cabinet<ChevronDown size={15} strokeWidth={2.2} className="nav-chev"/></span>
+          </button>
+          <AnimatePresence>{sub&&<motion.div id="nav-cabinet" className="nav-drop" initial={{opacity:0,y:8,scale:.98}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:6,scale:.98}} transition={{duration:.22,ease}}>
+            {cabinet.map(n=><Link key={n.href} href={n.href} onClick={()=>setSub(false)} aria-current={isActive(n)?'page':undefined} className={isActive(n)?'is-active':undefined}><strong>{n.label}</strong><small>{n.desc}</small></Link>)}
+          </motion.div>}</AnimatePresence>
+        </div>
       </nav>
       <Btn href="/contact/" size="sm" className="island-cta">Nous contacter</Btn>
       <button className="island-toggle" aria-label={open?'Fermer le menu':'Ouvrir le menu'} aria-expanded={open} aria-controls="menu-mobile" onClick={()=>setOpen(!open)}><span/><span/></button>
@@ -61,6 +79,7 @@ export function Header(){
       <Dots className="mnav-dots"/>
       <nav className="mnav-links" aria-label="Navigation mobile">
         {[...nav,{href:'/contact/',label:'Contact',id:''}].map((n,i)=><motion.div key={n.href} initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.6,ease,delay:.15+i*.05}}><Link href={n.href} onClick={()=>setOpen(false)}><span className="mnav-i">{String(i+1).padStart(2,'0')}</span>{n.label}</Link></motion.div>)}
+        <motion.div className="mnav-sub" initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:.6,ease,delay:.4}}><span className="mnav-sub-t">Le cabinet</span>{cabinet.map(n=><Link key={n.href} href={n.href} onClick={()=>setOpen(false)}>{n.label}</Link>)}</motion.div>
       </nav>
       <motion.div className="mnav-foot" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.5}}><a href={'mailto:'+contact.email}>{contact.email}</a><a href={contact.phoneHref}>{contact.phone}</a></motion.div>
     </motion.div>}</AnimatePresence>
@@ -94,7 +113,7 @@ export function Footer(){
     <div className="container ftr-top">
       <div className="ftr-brand"><Logo light/><p className="ftr-motto">{motto}</p><p>Cabinet de conseil canado-québécois en stratégie et affaires publiques.</p></div>
       <div className="ftr-col"><span className="ftr-title">Coordonnées</span><a href={'mailto:'+contact.email}>{contact.email}</a><a href={contact.phoneHref}>{contact.phone}</a><a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp {contact.whatsapp}</a><span>{contact.locations.join(' · ')} · {contact.remote.toLowerCase()}</span></div>
-      <div className="ftr-col"><span className="ftr-title">Explorer</span><Link href="/#apropos">À propos</Link><Link href="/#expertises">Expertises</Link><Link href="/#services">Services</Link><Link href="/equipe/">Équipe</Link><Link href="/articles/">Articles</Link><Link href="/evenements/">Événements</Link><Link href="/contact/">Contact</Link></div>
+      <div className="ftr-col"><span className="ftr-title">Explorer</span><Link href="/#expertises">Expertises</Link><Link href="/#services">Services</Link><Link href="/articles/">Analyses & publications</Link><Link href="/#apropos">À propos</Link><Link href="/equipe/">Équipe</Link><Link href="/evenements/">Événements</Link><Link href="/contact/">Contact</Link></div>
       <div className="ftr-col ftr-privacy" id="confidentialite"><span className="ftr-title">Confidentialité</span><p>{privacy}</p></div>
     </div>
     <div className="container ftr-bottom"><span suppressHydrationWarning>© {new Date().getFullYear()} CIRS-Conseil Inc.</span><a href="#top">Haut de page ↑</a></div>
