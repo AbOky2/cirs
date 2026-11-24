@@ -1,76 +1,63 @@
 'use client';
-import Link from 'next/link';
 import {useEffect,useRef,useState} from 'react';
 import {AnimatePresence,motion,useInView,useScroll,useTransform} from 'framer-motion';
-import {ArrowRight,ArrowUpRight,Award,BriefcaseBusiness,Building2,Check,Compass,Cpu,Factory,Gem,GraduationCap,Landmark,Megaphone,Plus,Target,Zap} from 'lucide-react';
-import {expertises,services,sectors,methodSteps,faq,quote,founder} from '@/lib/content';
+import Link from 'next/link';
+import {ArrowRight,ArrowUpRight,Award,BriefcaseBusiness,Building2,Cpu,Factory,Gem,GraduationCap,Landmark,Leaf,MessagesSquare,Plus,Settings,Zap} from 'lucide-react';
+import {svcUses} from '@/lib/content';
+import {useI18n} from '@/components/providers';
 import {expertiseIllustrations} from '@/components/illustrations';
 import {Btn,Dots,Tag} from '@/components/site';
 import {Float,Stagger,Title,item,ease,seeded,useReducedMotionSafe} from '@/components/motion';
-import {FocusMotto,HorizonsCard,PixelDissolve} from '@/components/hero';
 
 const pad=(n:number)=>String(n).padStart(2,'0');
 
-/* ——— Hero ——— */
-export function Hero(){
-  const fade=(d:number)=>({initial:{opacity:0,y:18},animate:{opacity:1,y:0},transition:{duration:.9,ease,delay:d}});
-  return <section className="hero">
-    <div className="hero-bg" aria-hidden="true"/>
-    <div className="container hero-grid">
-      <div className="hero-copy">
-        <motion.div {...fade(.05)}><Tag dark>Cabinet de conseil en stratégie et affaires publiques</Tag></motion.div>
-        <FocusMotto/>
-        <motion.p className="hero-lead" {...fade(.7)}>CIRS-Conseil Inc. est un cabinet de conseil canado-québécois en stratégie et affaires publiques. Une information fiable pour éclairer vos décisions.</motion.p>
-        <motion.div className="hero-ctas" {...fade(.82)}><Btn href="/contact/" variant="gold">Parlons de vos enjeux</Btn><Btn href="#expertises" variant="ghost">Nos expertises</Btn></motion.div>
-        <motion.ul className="hero-proof" {...fade(.95)}>{['Cabinet indépendant','Québec · interventions à distance','Loi 25 & RGPD'].map(t=><li key={t}><Check size={14} strokeWidth={2.6}/>{t}</li>)}</motion.ul>
-      </div>
-      <HorizonsCard/>
-    </div>
-    <PixelDissolve/>
-  </section>;
-}
-
 /* ——— Bandeau des horizons ——— */
-export function Marquee({items}:{items:string[]}){
+export function Marquee(){
+  const{t}=useI18n();const items=t.regions.flatMap(r=>r.countries.split(' · '));
   const row=[...items,...items];
-  return <div className="mq"><p className="mq-lead">Une perspective québécoise, des horizons internationaux</p><div className="mq-viewport"><div className="mq-track">{row.map((t,n)=><span key={n} className="mq-item" aria-hidden={n>=items.length?true:undefined}><i className="mq-px"/>{t}</span>)}</div></div></div>;
+  return <div className="mq"><p className="mq-lead">{t.marquee}</p><div className="mq-viewport"><div className="mq-track">{row.map((t,n)=><span key={n} className="mq-item" aria-hidden={n>=items.length?true:undefined}><i className="mq-px"/>{t}</span>)}</div></div></div>;
 }
 
 /* ——— Domaines d’expertise : onglets + illustrations ——— */
 export function ExpertiseTabs(){
+  const{t}=useI18n();const expertises=t.exp.items;
   const[i,setI]=useState(0);
+  // Sélection par ancre (#expertise-2) depuis le menu ou les raccourcis du hero.
+  useEffect(()=>{const read=()=>{const m=location.hash.match(/^#expertise-(\d)$/);if(m){const n=+m[1]!-1;if(n>=0&&n<expertises.length)setI(n)}};read();window.addEventListener('hashchange',read);return()=>window.removeEventListener('hashchange',read)},[expertises.length]);
   const Ill=expertiseIllustrations[i]!;const x=expertises[i]!;
-  const uses=services.filter(s=>s.items.includes(x.title)).map(s=>s.title);
-  const move=(d:number)=>{const n=(i+d+expertises.length)%expertises.length;setI(n);document.getElementById('xp-tab-'+n)?.focus()};
+  const move=(d:number)=>{const n=(i+d+expertises.length)%expertises.length;setI(n);document.getElementById('expertise-'+(n+1))?.focus()};
   return <div className="xp">
-    <div className="xp-list" role="tablist" aria-orientation="vertical" aria-label="Domaines d’expertise">
-      {expertises.map((e,n)=><button key={e.title} id={'xp-tab-'+n} role="tab" aria-selected={n===i} aria-controls="xp-panel" tabIndex={n===i?0:-1} className={n===i?'is-on':undefined} onClick={()=>setI(n)} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&n!==i)setI(n)}} onKeyDown={ev=>{if(ev.key==='ArrowDown'||ev.key==='ArrowRight'){ev.preventDefault();move(1)}if(ev.key==='ArrowUp'||ev.key==='ArrowLeft'){ev.preventDefault();move(-1)}}}>
+    <div className="xp-list" role="tablist" aria-orientation="vertical" aria-label={t.exp.listLabel}>
+      {expertises.map((e,n)=><button key={e.title} id={'expertise-'+(n+1)} role="tab" aria-selected={n===i} aria-controls="xp-panel" tabIndex={n===i?0:-1} className={n===i?'is-on':undefined} onClick={()=>setI(n)} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&n!==i)setI(n)}} onKeyDown={ev=>{if(ev.key==='ArrowDown'||ev.key==='ArrowRight'){ev.preventDefault();move(1)}if(ev.key==='ArrowUp'||ev.key==='ArrowLeft'){ev.preventDefault();move(-1)}}}>
         {n===i&&<motion.span layoutId="xp-pill" className="xp-pill" transition={{type:'spring',stiffness:380,damping:34}}/>}
-        <span className="xp-n">{pad(n+1)}</span><span className="xp-t">{e.title}</span><ArrowRight className="xp-a" size={18}/>
+        <span className="xp-n">{pad(n+1)}</span><span className="xp-t">{e.title}</span><ArrowRight className="xp-a flip-rtl" size={18}/>
       </button>)}
     </div>
-    <div className="xp-panel" id="xp-panel" role="tabpanel" aria-labelledby={'xp-tab-'+i}>
+    <div className="xp-panel" id="xp-panel" role="tabpanel" aria-labelledby={'expertise-'+(i+1)}>
       <AnimatePresence mode="wait"><motion.div key={i} className="xp-in" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-12}} transition={{duration:.45,ease}}>
-        <div className="xp-ill"><Ill/></div>
-        <div className="xp-body"><span className="xp-big">{pad(i+1)}<small>/05</small></span><h3>{x.title}</h3><p>{x.text}</p>
-          {uses.length>0&&<div className="xp-uses"><span>Mobilisée dans</span><ul>{uses.map(u=><li key={u}>{u}</li>)}</ul></div>}</div>
+        <div className="xp-ill"><Ill labels={t.exp.ill}/></div>
+        <div className="xp-body"><span className="xp-big" dir="ltr">{pad(i+1)}<small>/05</small></span><h3>{x.title}</h3><p>{x.text}</p>
+          <div className="xp-uses"><span>{t.svc.tag}</span><ul>{svcUses.flatMap((u,k)=>u.includes(i)?[k]:[]).map(k=><li key={k}><a href={'#service-'+(k+1)}>{t.svc.items[k]!.title}</a></li>)}</ul></div>
+          <div className="xp-cta"><Btn href="/contact/#consultation" variant="light" size="sm">{t.exp.cta}</Btn></div></div>
       </motion.div></AnimatePresence>
     </div>
   </div>;
 }
 
 /* ——— Services : cartes encochées, halo doré qui suit le survol ——— */
-const svcIcons=[Landmark,BriefcaseBusiness,Megaphone,Compass,Target];
+const svcIcons=[Landmark,BriefcaseBusiness,MessagesSquare,Leaf,Settings];
 export function ServicesBento(){
+  const{t,l}=useI18n();const services=t.svc.items;
   const[a,setA]=useState(0);
+  useEffect(()=>{const read=()=>{const m=location.hash.match(/^#service-(\d)$/);if(m){const n=+m[1]!-1;if(n>=0&&n<services.length)setA(n)}};read();window.addEventListener('hashchange',read);return()=>window.removeEventListener('hashchange',read)},[services.length]);
   return <Stagger className="svc-grid" gap={.07}>
-    {services.map((s,n)=>{const Icon=svcIcons[n]??Landmark;const on=a===n;return <motion.article key={s.title} variants={item} className={'svc svc-'+n+(on?' is-on':'')} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&!on)setA(n)}} onFocusCapture={()=>setA(n)}>
+    {services.map((s,n)=>{const Icon=svcIcons[n]??Landmark;const on=a===n;return <motion.article key={s.title} id={'service-'+(n+1)} variants={item} className={'svc svc-'+n+(on?' is-on':'')} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&!on)setA(n)}} onFocusCapture={()=>setA(n)}>
       {on&&<motion.div layoutId="svc-spot" className="svc-spot" transition={{type:'spring',stiffness:300,damping:34}}/>}
       {n===0&&<Dots className="svc-dots"/>}
       <div className="svc-notch"><span className="svc-ico"><Icon size={24} strokeWidth={1.7}/></span></div>
-      <span className="svc-n">{pad(n+1)}</span>
-      <div className="svc-body"><h3>{s.title}</h3><p className="svc-short">{s.short}</p><p className="svc-desc">{s.description}</p><ul className="svc-tags">{s.items.map(t=><li key={t} title={t}>{expertises.find(e=>e.title===t)?.short??t}</li>)}</ul></div>
-      <Link className="svc-go" href="/contact/" aria-label={`Parler de notre offre ${s.title}`}><ArrowUpRight size={20} strokeWidth={2}/></Link>
+      <span className="svc-n" dir="ltr">{pad(n+1)}</span>
+      <div className="svc-body"><h3>{s.title}</h3><p className="svc-short">{s.short}</p><p className="svc-desc">{s.description}</p><ul className="svc-tags">{(svcUses[n]??[]).map(k=><li key={k}>{t.exp.items[k]!.title}</li>)}</ul></div>
+      <Link className="svc-go" href={l('/contact/#consultation')} aria-label={`${t.svc.cta} : ${s.title}`}><ArrowUpRight className="flip-rtl" size={20} strokeWidth={2}/></Link>
     </motion.article>})}
   </Stagger>;
 }
@@ -82,6 +69,7 @@ const TIMES=XS.map(x=>(x-XS[0]!)/(END-XS[0]!));
 const particles=(()=>{const r=seeded(11);return Array.from({length:44},(_,n)=>({y0:24+r()*352,d:n*(6.4/44),s:1.6+r()*1.4}))})();
 const noise=(()=>{const r=seeded(5);return Array.from({length:70},()=>({x:4+r()*104,y:16+r()*368,o:.06+r()*.14}))})();
 function FlowViz({active}:{active:number}){
+  const{t}=useI18n();const methodSteps=t.method.steps;
   const reduce=useReducedMotionSafe();
   const ref=useRef<SVGSVGElement>(null);const inView=useInView(ref,{margin:'120px'});
   return <svg ref={ref} className="flow" viewBox="0 0 560 400" aria-hidden="true">
@@ -99,10 +87,11 @@ function FlowViz({active}:{active:number}){
       transition={{duration:6.4,times:TIMES,repeat:Infinity,ease:'linear',delay:p.d}}/>)}
     <circle cx={END} cy={C} r="46" fill="url(#fg)"/>
     <circle cx={END} cy={C} r="9" className="flow-end"/><circle cx={END} cy={C} r="9" className="flow-ping"/>
-    <text x={END} y={C+34} textAnchor="middle" className="flow-end-t">Décider</text>
+    <text x={END} y={C+34} textAnchor="middle" className="flow-end-t">{t.method.decide}</text>
   </svg>;
 }
 export function Method(){
+  const{t}=useI18n();const methodSteps=t.method.steps;
   const reduce=useReducedMotionSafe();
   const[s,setS]=useState(0);const[paused,setPaused]=useState(false);
   useEffect(()=>{if(reduce||paused)return;const t=setInterval(()=>setS(v=>(v+1)%methodSteps.length),3400);return()=>clearInterval(t)},[reduce,paused]);
@@ -118,20 +107,23 @@ export function Method(){
 
 /* ——— Équipe : portrait et badges flottants ——— */
 export function FounderPortrait({compact=false}:{compact?:boolean}){
+  const{t}=useI18n();const m=t.team;
   return <div className={'fp'+(compact?' fp-compact':'')}>
-    <div className="fp-frame"><Dots className="fp-dots"/><img src="/fondateur.webp" alt={`Portrait de ${founder.name}, ${founder.role}`} width="600" height="793"/></div>
-    <Float className="fp-badge fp-b1" amp={7}><span className="fp-bi"><Award size={17} strokeWidth={1.8}/></span><span><small>Certifié en</small>Intelligence économique</span></Float>
-    <Float className="fp-badge fp-b2" amp={9} delay={1.4} duration={7}><span className="fp-bi"><GraduationCap size={17} strokeWidth={1.8}/></span><span><small>Formé à</small>ENAP · IEP de Fontainebleau</span></Float>
-    <Float className="fp-badge fp-b3" amp={6} delay={.7} duration={5.5}><span className="fp-live"/>PDG · CIRS-Conseil Inc.</Float>
+    <div className="fp-frame"><Dots className="fp-dots"/><img src="/fondateur.webp" alt={m.portraitAlt} width="600" height="793"/></div>
+    <Float className="fp-badge fp-b1" amp={7}><span className="fp-bi"><Award size={17} strokeWidth={1.8}/></span><span><small>{m.badgeCert}</small>{m.badgeCertV}</span></Float>
+    <Float className="fp-badge fp-b2" amp={9} delay={1.4} duration={7}><span className="fp-bi"><GraduationCap size={17} strokeWidth={1.8}/></span><span><small>{m.badgeEdu}</small>{m.badgeEduV}</span></Float>
+    <Float className="fp-badge fp-b3" amp={6} delay={.7} duration={5.5}><span className="fp-live"/>{m.badgeRole}</Float>
   </div>;
 }
 export function QuoteBlock({dark=false}:{dark?:boolean}){
+  const{t}=useI18n();const quote=t.quote;
   return <figure className={'qb'+(dark?' qb-dark':'')}><span className="qb-mark" aria-hidden="true">“</span><blockquote>{quote.text}</blockquote><figcaption>— {quote.author}</figcaption></figure>;
 }
 
 /* ——— Secteurs : accordéon horizontal ——— */
 const secIcons=[Cpu,Factory,Gem,Zap,Building2];
 export function Sectors(){
+  const{t}=useI18n();const sectors=t.sectors.items;
   const[a,setA]=useState(0);
   return <div className="sx">{sectors.map((s,n)=>{const Icon=secIcons[n]??Cpu;const on=a===n;return <button key={s.title} className={'sx-item'+(on?' is-on':'')} aria-expanded={on} onPointerMove={ev=>{if(ev.pointerType==='mouse'&&!on)setA(n)}} onFocus={()=>setA(n)} onClick={()=>setA(n)}>
     <Dots className="sx-dots"/>
@@ -143,6 +135,7 @@ export function Sectors(){
 
 /* ——— FAQ ——— */
 export function Faq(){
+  const{t}=useI18n();const faq=t.faq.items;
   const[o,setO]=useState<number|null>(0);
   return <div className="faq">{faq.map((f,n)=>{const on=o===n;return <div key={f.q} className={'faq-item'+(on?' is-on':'')}>
     <h3><button id={'faq-b-'+n} aria-expanded={on} aria-controls={'faq-'+n} onClick={()=>setO(on?null:n)}><span>{f.q}</span><span className="faq-ico" aria-hidden="true"><Plus size={18} strokeWidth={2}/></span></button></h3>

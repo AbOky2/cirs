@@ -1,50 +1,15 @@
-export const motto='Anticiper. Comprendre. Décider.';
+// Données invariantes d’une langue à l’autre. Les textes traduits sont dans lib/i18n/.
 export const contact={
   email:'firme@cirsorg.com',
   phone:'418 558 48 64',
   phoneHref:'tel:+14185584864',
   whatsapp:'+33 7 52 93 06 08',
   whatsappHref:'https://wa.me/33752930608',
-  locations:['Québec, Canada'],
-  remote:'Travail à distance'
 };
-export const founder={name:'Hassan Ahmat Djamaladine',role:'PDG de CIRS-Conseil Inc.',certifications:['Intelligence économique','Évaluation des politiques publiques','Métiers du pouvoir'],firm:'CIRS-Conseil Inc. est un cabinet de conseil canado-québécois en stratégie et affaires publiques.'};
-export const quote={text:'Il n’est pas de vent favorable pour celui qui ne sait où il va.',author:'Sénèque'};
-export const privacy='CIRS-Conseil Inc. respecte la réglementation en matière de protection des renseignements personnels relative à la Loi 25 au Québec et le RGPD en Europe.';
-export const expertises=[
-{title:'Veille stratégique et intelligence économique',short:'Veille & intelligence économique',text:'Surveiller les marchés, les acteurs, les réglementations et les tendances pour repérer les signaux qui comptent pour vous.'},
-{title:'Analyse géopolitique, pays et marchés',short:'Géopolitique, pays & marchés',text:'Lire les rapports de force, comprendre un pays, son économie et ses marchés avant de s’y engager.'},
-{title:'Analyse des risques et environnement stratégique',short:'Risques & environnement',text:'Identifier les risques, les parties prenantes et les opportunités d’implantation dans votre environnement économique, réglementaire et concurrentiel.'},
-{title:'Communication stratégique et de crise',short:'Communication & crise',text:'Porter le bon message, au bon moment, auprès des bons publics, en temps normal comme en situation de crise.'},
-{title:'Évaluation des politiques publiques',short:'Politiques publiques',text:'Mesurer la portée et les effets des décisions publiques pour éclairer les choix des organisations.'}
-];
-export const services=[
-{title:'Affaires publiques & institutions',short:'Comprendre les institutions. Dialoguer avec les décideurs.',description:'Décrypter l’environnement institutionnel et les politiques publiques pour définir votre stratégie d’engagement auprès des pouvoirs publics.',items:['Évaluation des politiques publiques','Analyse géopolitique, pays et marchés','Analyse des risques et environnement stratégique']},
-{title:'Conseil en affaires',short:'Éclairer vos choix de développement, ici et à l’international.',description:'Accompagner vos projets d’expansion et d’implantation grâce à une lecture fiable des pays, des marchés et de la concurrence.',items:['Analyse géopolitique, pays et marchés','Analyse des risques et environnement stratégique','Veille stratégique et intelligence économique']},
-{title:'Relations publiques',short:'Construire la confiance avec vos publics.',description:'Définir vos messages et vos prises de parole, en temps normal comme en situation de crise.',items:['Communication stratégique et de crise','Veille stratégique et intelligence économique']},
-{title:'Conseil sur l’environnement',short:'Lire votre environnement stratégique dans toutes ses dimensions.',description:'Analyser l’environnement économique, réglementaire et international dans lequel évolue votre organisation pour anticiper ses transformations.',items:['Analyse des risques et environnement stratégique','Veille stratégique et intelligence économique']},
-{title:'Conseil en management',short:'Transformer l’analyse en décisions et en action.',description:'Traduire l’information stratégique en orientations concrètes pour vos dirigeants et vos équipes.',items:['Analyse des risques et environnement stratégique','Veille stratégique et intelligence économique']}
-];
-export const sectors=[{title:'Technologies & innovation',text:'Expansion, réglementation, concurrence et accès aux marchés internationaux.'},{title:'Industrie manufacturière',text:'Chaînes d’approvisionnement, droits de douane et changements réglementaires.'},{title:'Ressources & minéraux critiques',text:'Marchés, approvisionnements et exposition aux risques géopolitiques.'},{title:'Énergie',text:'Évolution des marchés, sécurité énergétique et environnement réglementaire.'},{title:'Institutions & organisations',text:'Affaires publiques, politiques publiques et compréhension de l’environnement institutionnel.'}];
-export const regions=[{name:'Amériques',countries:'Québec · Canada · États-Unis · Amérique latine',text:'Une perspective québécoise sur les dynamiques continentales et les marchés des Amériques.'},{name:'Europe',countries:'France · Union européenne',text:'Une lecture des environnements économiques, réglementaires et institutionnels européens.'},{name:'Afrique',countries:'Afrique francophone · Afrique subsaharienne',text:'L’analyse des enjeux locaux et des dynamiques régionales pour éclairer votre développement.'},{name:'Asie',countries:'Asie du Sud-Est · Vietnam',text:'Comprendre les transformations des marchés et des chaînes de valeur en Asie du Sud-Est.'}];
-export const aboutServices=['Veille stratégique','Analyse géopolitique','Communication de crise','Évaluation de politiques publiques','Analyse de pays et de marchés','Environnement économique et réglementaire','Identification des parties prenantes','Analyse des risques','Opportunités d’implantation','Environnement concurrentiel'];
-export const methodSteps=[
-{title:'Observer',text:'Recueillir les informations pertinentes et repérer les signaux émergents.'},
-{title:'Analyser',text:'Relier les faits, comprendre les acteurs et mettre les évolutions en perspective.'},
-{title:'Anticiper',text:'Explorer les scénarios et identifier les risques comme les opportunités.'},
-{title:'Conseiller',text:'Traduire l’analyse en orientations adaptées à votre réalité.'}
-];
-// Chiffres factuels uniquement (aucune statistique inventée).
-export const keyFigures=[
-{value:5,pad:true,suffix:'',label:'domaines d’expertise'},
-{value:5,pad:true,suffix:'',label:'offres de conseil'},
-{value:4,pad:true,suffix:'',label:'régions du monde'},
-{value:10,pad:false,suffix:'',label:'pays et zones d’expertise'}
-];
-export const faq=[
-{q:'Qui accompagnez-vous ?',a:'Les organisations qui doivent comprendre leur environnement international pour décider : entreprises, institutions et organisations, notamment québécoises, dans les technologies, l’industrie, les ressources, l’énergie ou les services.'},
-{q:'Intervenez-vous en dehors du Québec ?',a:'Oui. Implantés au Québec, nous intervenons aussi à distance sur les Amériques, l’Europe, l’Afrique et l’Asie du Sud-Est.'},
-{q:'CIRS-Conseil est-il lié au think tank CIRS ?',a:'CIRS-Conseil Inc. est indépendant du think tank Cercle international de réflexions stratégiques (CIRS). Notre expertise s’inspire notamment de l’expérience développée parallèlement à ses travaux.'},
-{q:'Comment protégez-vous nos informations ?',a:'CIRS-Conseil Inc. respecte la réglementation en matière de protection des renseignements personnels relative à la Loi 25 au Québec et le RGPD en Europe. Ce site ne stocke aucune donnée : le formulaire ouvre simplement votre messagerie.'},
-{q:'Comment démarrer ?',a:'Écrivez-nous à firme@cirsorg.com, appelez le 418 558 48 64 ou décrivez votre besoin dans le formulaire de contact. Nous revenons vers vous pour en parler.'}
-];
+export const founderName='Hassan Ahmat Djamaladine';
+// Chiffres factuels uniquement (aucune statistique inventée) ; libellés dans le dictionnaire (about.figures).
+export const keyFigures=[{value:5,pad:true},{value:5,pad:true},{value:4,pad:true},{value:3,pad:true}];
+// Rubriques des analyses (valeurs du CMS, en français) pour le sous-menu « Analyses & publications ».
+export const articleCats=['Analyses stratégiques','Notes de politiques publiques','Perspectives CIRS-Conseil','Études thématiques'];
+// Domaines d’expertise (indices dans exp.items) mobilisés par chacun des cinq services.
+export const svcUses=[[4,1,2],[1,2,0],[3,0],[2,0],[2,0]];

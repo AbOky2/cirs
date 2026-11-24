@@ -1,30 +1,42 @@
 'use client';
 import Link from 'next/link';
-import {useState} from 'react';
+import {useEffect,useState} from 'react';
+import {useSearchParams,useRouter,usePathname} from 'next/navigation';
+import {articleCats} from '@/lib/content';
 import {AnimatePresence,motion,useScroll,useSpring} from 'framer-motion';
 import {ArrowUpRight,CalendarDays,Check,Link2} from 'lucide-react';
 import {Dots} from '@/components/site';
 import {ease} from '@/components/motion';
+import {useI18n} from '@/components/providers';
 
 export type ArticleCardData={slug:string;title:string;category:string;dateIso:string;dateLabel:string;minutes:number;summary:string;cover?:string};
 
 export function ArticleCard({a,wide=false}:{a:ArticleCardData;wide?:boolean}){
+  const{t}=useI18n();const ap=t.articlesPage;
   return <Link className="art-card" href={`/articles/${a.slug}/`} data-wide={wide||undefined}>
-    <span className="art-cover">{a.cover?<img src={a.cover} alt="" loading="lazy"/>:<Dots/>}<span className="art-cover-top"><span className="art-cat">{a.category}</span><span className="art-time">{a.minutes} min</span></span><span className="art-cover-mark" aria-hidden="true">CIRS<b>·</b>Analyse</span></span>
-    <span className="art-body"><time dateTime={a.dateIso}>{a.dateLabel}</time><span className="art-title">{a.title}</span>{a.summary&&<span className="art-sum">{a.summary}</span>}<span className="art-more">Lire l’article <ArrowUpRight size={16}/></span></span>
+    <span className="art-cover">{a.cover?<img src={a.cover} alt="" loading="lazy"/>:<Dots/>}<span className="art-cover-top"><span className="art-cat">{a.category}</span><span className="art-time"><span dir="ltr">{a.minutes}</span> {ap.min}</span></span><span className="art-cover-mark" aria-hidden="true">CIRS<b>·</b>{ap.mark}</span></span>
+    <span className="art-body"><time dateTime={a.dateIso}>{a.dateLabel}</time><span className="art-title" lang="fr" dir="ltr">{a.title}</span>{a.summary&&<span className="art-sum" lang="fr" dir="ltr">{a.summary}</span>}<span className="art-more">{ap.read} <ArrowUpRight size={16} className="flip-rtl"/></span></span>
   </Link>;
 }
 
 /** Liste filtrable par rubrique, avec réagencement animé. */
 export function ArticlesBrowser({articles}:{articles:ArticleCardData[]}){
-  const cats=['Toutes',...Array.from(new Set(articles.map(a=>a.category)))];
-  const[cat,setCat]=useState('Toutes');
-  const shown=cat==='Toutes'?articles:articles.filter(a=>a.category===cat);
+  const{t,l}=useI18n();const ap=t.articlesPage;const ALL='*';
+  // Rubriques du menu (toujours proposées) puis celles présentes dans les articles ; sélection via ?rubrique=…
+  const cats=[ALL,...Array.from(new Set([...articleCats,...articles.map(a=>a.category)]))];
+  const label=(c:string)=>c===ALL?ap.all:(t.nav.cats[articleCats.indexOf(c)]??c);
+  const params=useSearchParams();const router=useRouter();const pathname=usePathname();
+  const fromUrl=params.get('rubrique');
+  const[cat,setCat]=useState(fromUrl&&cats.includes(fromUrl)?fromUrl:ALL);
+  useEffect(()=>{setCat(fromUrl&&cats.includes(fromUrl)?fromUrl:ALL)},[fromUrl]);// eslint-disable-line react-hooks/exhaustive-deps
+  const pick=(c:string)=>{setCat(c);router.replace(c===ALL?pathname:`${pathname}?rubrique=${encodeURIComponent(c)}`,{scroll:false})};
+  const shown=cat===ALL?articles:articles.filter(a=>a.category===cat);
   return <>
-    {cats.length>2&&<div className="filters" role="toolbar" aria-label="Filtrer par rubrique">{cats.map(c=><button key={c} aria-pressed={c===cat} className={c===cat?'is-on':undefined} onClick={()=>setCat(c)}>{c===cat&&<motion.span layoutId="filter-pill" className="filter-pill" transition={{type:'spring',stiffness:400,damping:34}}/>}<span>{c}</span></button>)}</div>}
+    {cats.length>1&&<div className="filters" role="toolbar" aria-label={ap.filter}>{cats.map(c=><button key={c} aria-pressed={c===cat} className={c===cat?'is-on':undefined} onClick={()=>pick(c)}>{c===cat&&<motion.span layoutId="filter-pill" className="filter-pill" transition={{type:'spring',stiffness:400,damping:34}}/>}<span lang={c===ALL||articleCats.includes(c)?undefined:'fr'}>{label(c)}</span></button>)}</div>}
+    {shown.length===0&&<p className="empty-cat">{ap.emptyCat}</p>}
     <motion.ul layout className="list-grid">
       <AnimatePresence mode="popLayout">{shown.map(a=><motion.li layout key={a.slug} className="art-wrap" initial={{opacity:0,scale:.96,y:20}} animate={{opacity:1,scale:1,y:0}} exit={{opacity:0,scale:.96}} transition={{duration:.5,ease}}><ArticleCard a={a}/></motion.li>)}</AnimatePresence>
-      {shown.length<3&&<motion.li layout key="evt" className="art-wrap" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.5,ease,delay:.1}}><Link className="evt-card" href="/evenements/"><Dots className="evt-dots"/><span className="evt-ico"><CalendarDays size={22} strokeWidth={1.6}/></span><span><span className="evt-k">Conférences & événements</span><span className="evt-t">Conférences, webinaires, tables rondes et interventions.</span></span><span className="evt-go">Inviter CIRS-Conseil <ArrowUpRight size={16}/></span></Link></motion.li>}
+      {shown.length<3&&<motion.li layout key="evt" className="art-wrap" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.5,ease,delay:.1}}><Link className="evt-card" href={l('/evenements/')}><Dots className="evt-dots"/><span className="evt-ico"><CalendarDays size={22} strokeWidth={1.6}/></span><span><span className="evt-k">{t.eventsCard.k}</span><span className="evt-t">{t.eventsCard.t}</span></span><span className="evt-go">{t.eventsCard.go} <ArrowUpRight size={16} className="flip-rtl"/></span></Link></motion.li>}
     </motion.ul>
   </>;
 }
